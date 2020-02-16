@@ -466,10 +466,18 @@ span.slider-dot {
     border-bottom-width: 1px;
 }
 
-.products-block-products, .shop-items{
+.products-block-products, .shop-items-grid{
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+.shop-items-grid .product-shortdesc{
+    display: none;
+}
+
+.shop-items-grid .product-innerinfo button{
+    display: none;
 }
 
 .products-block-product{
@@ -486,7 +494,7 @@ span.slider-dot {
 	background-color: #fff;
 }
 
-.products-block-product .product-container{
+.product-container, .product-innerinfo{
 	cursor: pointer;
 	display: flex;
     flex-direction: column;
@@ -529,7 +537,7 @@ span.slider-dot {
     background-color: #ebb651;
 }
 
-.shop-items .products-block-product button:hover{
+.shop-items-grid .products-block-product button:hover, .shop-items-list .products-block-product button:hover{
     background-color: #408de4;
 }
 
@@ -563,6 +571,49 @@ span.slider-dot {
 
 .products-block-product img{
     width: 100%;
+}
+
+.shop-items-list .products-block-product{
+    border-width: 1px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: max-content;
+}
+
+.shop-items-list .product-container{
+    flex-direction: row;
+}
+
+.shop-items-list .product-innerinfo{
+    padding: 5px 10px;
+    align-items: start;
+    border-style: solid;
+    border-left-width: 1px;
+    border-color: #e8e8e8;
+}
+
+.shop-items-list .products-block-product img{
+    width: 200px;
+}
+
+.shop-items-list .products-block-product>button{
+    display: none;
+}
+
+.products-block-product .product-shortdesc{
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.2em;
+    color: #777777;
+    margin: 3px 0;
+}
+
+.shop-items-list .products-block-product button{
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: max-content;
+    padding: 10px 20px;
 }
 
 .products-block-banner{
@@ -764,7 +815,7 @@ footer .centered-container.bottom-container{
     justify-content: space-between;
 }
 
-.shop-items{
+.shop-items-grid, .shop-items-list{
     max-width: 750px;
     justify-content: center;
 }
@@ -816,11 +867,11 @@ footer .centered-container.bottom-container{
     color: white;
 }
 
-.shop-items .products-block-product:nth-child(3n + 1){
+.shop-items-grid .products-block-product:nth-child(3n + 1){
     border-left-width: 1px;
 }
 
-.shop-items .products-block-product:nth-child(-n + 3){
+.shop-items-grid .products-block-product:nth-child(-n + 3){
     border-top-width: 1px;
 }
 
