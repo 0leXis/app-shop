@@ -72,9 +72,9 @@
         </div>
         <div class="shop-container">
             <div class="shop-sidebar">
-                <div class="product-categories">
-                    <div class="product-categories-header big-txt">Категории</div>
-                    <ul class="product-categories-list">
+                <div class="shop-sidebar-column">
+                    <div class="shop-sidebar-columnheader big-txt">Категории</div>
+                    <ul class="shop-sidebar-list">
                         <li>Смартфоны</li>
                         <li>Телевизоры</li>
                         <li>Цифровые камеры</li>
@@ -95,13 +95,35 @@
                         <li>Посудомоечные машины</li>
                     </ul>
                 </div>
-                <div class="product-filters">
-                    
+                <div class="shop-sidebar-column">
+                    <div class="shop-sidebar-columnheader big-txt">Цена</div>
+                    <label>От:</label><input type="text" name="min_price"/>
+                    <label>До:</label><input type="text" name="max_price"/>
+                </div>
+                <div class="shop-sidebar-column">
+                    <div class="shop-sidebar-columnheader big-txt">Производитель</div>
+                    <ul class="shop-sidebar-list">
+                        <li>OleXis Professional</li>
+                        <li>Samsung</li>
+                    </ul>
                 </div>
             </div>
             <div class="shop-itemgrid">
                 <div class="shop-itemsheader">
-
+                    <span class="big-txt">Showing 1-16 from 24 products</span>
+                    <div class="buttons-block">
+                        <select name="item-count">
+                            <option>16</option>
+                            <option>24</option>
+                            <option>32</option>
+                        </select>
+                        <button class="pressed">
+                            <img src="images/ProductGrid.png" alt="Grid style"/>
+                        </button>
+                        <button class="released">
+                            <img src="images/ProductList.png" alt="List style"/>
+                        </button>
+                    </div>
                 </div>
                 <div class="shop-items">
                     <div class="products-block-product">
@@ -271,7 +293,11 @@
                     </div>
                 </div>
                 <div class="shop-pagesbuttons">
-
+                    <span>1</span>
+                    <a href="nextpage">2</a>
+                    <a href="nextpage">3</a>
+                    <span class="dots">...</span>
+                    <a href="nextpage">3000</a>
                 </div>
             </div>
         </div>
