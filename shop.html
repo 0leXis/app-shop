@@ -108,7 +108,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="shop-itemgrid">
+            <div class="shop">
                 <div class="shop-itemsheader">
                     <span class="big-txt">Showing 1-16 from 24 products</span>
                     <div class="buttons-block">
@@ -117,15 +117,15 @@
                             <option>24</option>
                             <option>32</option>
                         </select>
-                        <button class="pressed">
+                        <button class="pressed" name="shop_gridstyle_btn" onclick="setGridStyle(this)">
                             <img src="images/ProductGrid.png" alt="Grid style"/>
                         </button>
-                        <button class="released">
+                        <button class="released" name="shop_liststyle_btn" onclick="setListStyle(this)">
                             <img src="images/ProductList.png" alt="List style"/>
                         </button>
                     </div>
                 </div>
-                <div class="shop-items-list">
+                <div class="shop-items-grid" name="shop_2styles">
                     <div class="products-block-product">
                         <!--TODO: Revork onclick to something better-->
                         <div class="product-container" onclick="window.location = 'toptovar'">
@@ -445,5 +445,5 @@
         </div>
     </footer>
 </body>
-
+<script src="scripts/ChangeShopStyle.js"></script>
 </html>
