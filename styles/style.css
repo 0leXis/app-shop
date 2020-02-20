@@ -731,22 +731,22 @@ footer .centered-container.bottom-container{
     max-width: 300px;
 }
 
-.footer-top-slogan{
+.footer-top-slogan, .contactinfo-text{
     margin: 10px 0 15px 0;
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.footer-storeinfo-info{
+.storeinfo-info{
     margin: 5px 0;
 }
 
-.footer-info-info{
+.storeinfo-info{
     font-family: RobotoLight, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.footer-info-desc{
+.storeinfo-desc{
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
@@ -952,7 +952,7 @@ footer .centered-container.bottom-container{
     margin-bottom: 80px;
 }
 
-.shop-pagesbuttons a{
+.shop-pagesbuttons a, .team-info a{
     border-color: #e5e5e5;
     border-radius: 5px;
     border-style: solid;
@@ -967,7 +967,7 @@ footer .centered-container.bottom-container{
     border-radius: 5px;
 }
 
-.shop-pagesbuttons span, .shop-pagesbuttons a{
+.shop-pagesbuttons span, .shop-pagesbuttons a, .team-info a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -980,7 +980,7 @@ footer .centered-container.bottom-container{
     font-size: 14px;
 }
 
-.shop-pagesbuttons a:hover{
+.shop-pagesbuttons a:hover, .team-info a:hover{
     background-color: #408de4;
     color: white;
 }
@@ -988,4 +988,204 @@ footer .centered-container.bottom-container{
 .shop-pagesbuttons span.dots{
     padding-bottom: 11px;
     min-height: 14px;
+}
+
+.team-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-container img{
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.team-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.team-info h2{
+    text-transform: uppercase;
+    font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.team-info p:first-of-type{
+    font-family: RobotoMedium, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.3em;
+    margin: 20px 0;
+}
+
+.team-info p{
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.3em;
+    margin-bottom: 20px;
+}
+
+.team-features{
+    margin-top: 50px;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.team-features .feature-text{
+    color: #888888;
+}
+
+.team-features ul, .team-stats ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-features ul li, .team-stats ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-features ul li{
+    max-width: 250px;
+}
+
+.team-features .img-container{
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #408de4;
+}
+
+.team-stats{
+    padding: 50px 0;
+    background-color: #d0d0d0;
+}
+
+.team-stats ul li{
+    max-width: 150px;
+}
+
+.team-stats .stats-stat{
+    font-family: RobotoMedium, Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.team-stats .stats-text{
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #f3f3f3;
+}
+
+.meet-the-team{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meet-header h2{
+    font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.meet-header{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.meet-header span{
+    font-family: RalewayRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #8d8d8d;
+}
+
+.meet-the-team{
+    margin-bottom: 50px;
+}
+
+.meet-team{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.meet-team li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #eeeeee;
+    border-radius: 10px;
+    max-width: 250px;
+}
+
+.meet-team li img{
+    border-radius: 10px;
+}
+
+.meet-team li span{
+    margin-top: 10px;
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #8d8d8d;
+}
+
+.meet-team li span:first-of-type{
+    font-family: RobotoMedium, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.meet-team li span:last-child{
+    margin-bottom: 10px;
+}
+
+.contacts-container{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 70px;
+}
+
+.contact-form, .contacts-info{
+	display: flex;
+	flex-direction: column;
+	max-width: 450px;
+}
+
+.contact-form{
+	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.contact-form h2, .contacts-info h2{
+	font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.contact-form label{
+	margin-top: 15px;
+}
+
+.contact-form input, .contact-form textarea{
+    border-color: #e8e8e8;
+    border-style: solid;
+    border-width: 1px;
+    outline: none;
+	border-radius: 5px;
+	padding: 8px;
+	resize: none;
+	width: 300px;
+}
+
+.contact-form textarea{
+	height: 150px;
+}
+
+.required-field:after{
+	content: ' *';
+	color: red;
 }
