@@ -1144,33 +1144,33 @@ footer .centered-container.bottom-container{
     margin-bottom: 10px;
 }
 
-.contacts-container{
+.contacts-container, .login-container{
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 70px;
 }
 
-.contact-form, .contacts-info{
+.contact-form, .contacts-info, .login-container form{
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
 }
 
-.contact-form{
+.contact-form, .login-container form{
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.contact-form h2, .contacts-info h2{
+.contact-form h2, .contacts-info h2, .login-container h2{
 	font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
-.contact-form label{
+.contact-form label, .login-container label{
 	margin-top: 15px;
 }
 
-.contact-form input, .contact-form textarea{
+.contact-form input, .contact-form textarea, .login-container textarea{
     border-color: #e8e8e8;
     border-style: solid;
     border-width: 1px;
@@ -1181,8 +1181,26 @@ footer .centered-container.bottom-container{
 	width: 300px;
 }
 
-.contact-form textarea{
+.contact-form textarea, .login-container textarea{
 	height: 150px;
+}
+
+.contact-form input[type="submit"]{
+    margin-top: 20px;
+    border-color: #e5e5e5;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    text-decoration: none;
+    padding: 10px 40px;
+    width: max-content;
+    color: black;
+}
+
+.contact-form input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #408de4;
+    color: white;
 }
 
 .required-field:after{
