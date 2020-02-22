@@ -1212,27 +1212,27 @@ td div.delete-cross-btn{
 	margin-bottom: 70px;
 }
 
-.contact-form, .contacts-info, .login-container form{
+.contact-form, .contacts-info, .login-container form, .delivery-form{
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
 }
 
-.contact-form, .login-container form{
+.contact-form, .login-container form, .delivery-form{
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2{
+.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2{
 	font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
-.contact-form label, .login-container label{
+.contact-form label, .login-container label, .delivery-form label{
 	margin-top: 15px;
 }
 
-.contact-form input, .contact-form textarea, .login-container input, .login-container textarea{
+.contact-form input, .contact-form textarea, .login-container input, .login-container textarea, .delivery-form input, .delivery-form select{
     border-color: #e8e8e8;
     border-style: solid;
     border-width: 1px;
@@ -1241,6 +1241,14 @@ td div.delete-cross-btn{
 	padding: 8px;
 	resize: none;
 	width: 300px;
+}
+
+.delivery-form select{
+    width: calc(300px + 18px);
+}
+
+.delivery-form{
+    margin-bottom: 30px;
 }
 
 .contact-form textarea, .login-container textarea{
@@ -1292,6 +1300,10 @@ td div.delete-cross-btn{
     border-style: solid;
     border-right-width: 1px;
 	background-color: #fcfcfc;
+}
+
+.cart-totals-header:last-child{
+    border-right: none;
 }
 
 .cart-totals-table{
