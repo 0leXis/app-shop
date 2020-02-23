@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Offliner - Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-login">
+            <div class="centered-container">
+                <a href="#">Вход/Регистрация</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="centered-container">
+                <div class="header-logo">
+                    <image src="images/Logo.png" alt="Logo" />
+                    <span class="big-txt">Offliner</span>
+                </div>
+                <div class="header-search-and-cart">
+                    <div class="header-search">
+                        <form name="search" method="GET" action="#">
+                            <input type="text" name="search_string" placeholder="Искать..." />
+                            <select name="category">
+                                <option>Все категории</option>
+                                <option>Стиральные машины</option>
+                            </select>
+                            <button type="submit">
+                                <img src="images/Search.png" />
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-cart">
+                        <button>
+                            <img src="images/Cart.png" />
+                        </button>
+                        <div class="header-cart-sum">
+                            <span>0 Товаров:</span>
+                            <pre> </pre>
+                            <span class="blue-text">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="centered-container">
+                <nav>
+                    <ul>
+                        <li class="selected-menu-item"><a href="#" class="big-txt black-txt">Главная</a></li>
+                        <li><a href="#" class="big-txt white-txt">Магазин</a></li>
+						<li><a href="#" class="big-txt white-txt">Новинки</a></li>
+                        <li><a href="#" class="big-txt white-txt">Преимущества</a></li>
+                        <li><a href="#" class="big-txt white-txt">О нас</a></li>
+                    </ul>
+                </nav>
+                <div class="header-contactus">
+                    <span class="big-txt white-txt">Позвоните нам:</span>
+                    <pre> </pre>
+                    <span class="header-contactus-phone">+375 29 22-81-337</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="centered-container">
+            <div class="main-header">
+                <h1 class="big-txt">Страница товара</h1>
+            </div>
+            <div class="product-desc-block">
+                <img src="images/TV.jpg" alt="Product image"/>
+                <div class="product-desc">
+                    <h2>TV Pro 32GB Black</h2>
+                    <div class="product-raiting-block">
+                        <ul class="product-stars">
+                            <li class="yellow-star"></li>
+                            <li class="yellow-star"></li>
+                            <li class="yellow-star"></li>
+                            <li class="yellow-star"></li>
+                            <li class="dark-star"></li>
+                        </ul>
+                        <span>(10 отзывов)</span>
+                    </div>
+                    <div class="product-price-block">
+                        <span class="old-price">$220.00</span>
+                        <span class="new-price">$230.00</span>
+                    </div>
+                    <div class="product-shortdesc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                    </div>
+                    <div class="product-additionalinfo">
+                        <div class="info-element">
+                            <span class="info-header">Артикул:</span>
+                            <span>24344545</span>
+                        </div>
+                        <div class="info-element">
+                            <span class="info-header">Категория:</span>
+                            <span>Телевизоры</span>
+                        </div>
+                    </div>
+                    <span class="in-stock">В наличии 12 единиц</span>
+                    <form name="order" method="POST" action="#">
+                        <label>Кол-во:</label>
+                        <input type="number" name="count" min="1" max="12" value="1"/>
+                        <input type="submit" value="В корзину"/>
+                    </form>
+                </div>
+            </div>
+            <div class="product-reviews-block">
+                <div class="product-reviews">
+                    <h2>Отзывы покупателей</h2>
+                    <div class="customer-review">
+                        <div class="review-header">
+                            <div class="review-data">
+                                <span class="customer-name">OleXis OleXis</span>
+                                <span class="review-date">7 Июня 2018</span>
+                            </div>
+                            <ul class="product-stars">
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="dark-star"></li>
+                            </ul>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus laudantium illo ad, dolore numquam ratione enim voluptates tempore distinctio quod repellendus ipsam aut aperiam, rerum adipisci. Odit maxime officiis quae.
+                        </p>
+                    </div>
+                    <div class="customer-review">
+                        <div class="review-header">
+                            <div class="review-data">
+                                <span class="customer-name">OleXis OleXis</span>
+                                <span class="review-date">7 Июня 2018</span>
+                            </div>
+                            <ul class="product-stars">
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="yellow-star"></li>
+                                <li class="dark-star"></li>
+                            </ul>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus laudantium illo ad, dolore numquam ratione enim voluptates tempore distinctio quod repellendus ipsam aut aperiam, rerum adipisci. Odit maxime officiis quae.
+                        </p>
+                    </div>
+                    <button name="load_more">Показать больше отзывов</button>
+                </div>
+                <form name="add_review" method="POST" action="#">
+                    <h2>Добавить отзыв</h2>
+                    <label>Оценка<span class="required-field"></span></label>
+                    <ul class="product-stars-choose">
+                        <li class="dark-star"></li>
+                        <li class="dark-star"></li>
+                        <li class="dark-star"></li>
+                        <li class="dark-star"></li>
+                        <li class="dark-star"></li>
+                    </ul>
+                    <input type="hidden" name="user_score" value="-1"/>
+                    <label>Ваш отзыв<span class="required-field"></span></label>
+                    <textarea name="message"></textarea>
+                    <input type="submit" value="Отправить"/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="centered-container">
+            <ul class="footer-shopfeatures">
+                <li>
+                    <img src="images/FreeShipping.png" alt="Free Shipping"/>
+                    <span class="feature-header big-txt">Бесплатная доставка</span>
+                    <span class="feature-text">Бесплатная доставка по всему миру при заказе больше $99.</span>
+                </li>
+                <li>
+                    <img src="images/TrustedPay.png" alt="Trusted Pay"/>
+                    <span class="feature-header big-txt">Гарантии оплаты</span>
+                    <span class="feature-text">100% защита платежа и легкий возврат средств</span>
+                </li>
+                <li>
+                    <img src="images/SecuredPayment.png" alt="Secured Payment"/>
+                    <span class="feature-header big-txt">Возможности оплаты</span>
+                    <span class="feature-text">Мы работаем со всеми кредитными картами и сервисами</span>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-socials">
+            <span class="big-txt white-txt">Оставайтесь на связи</span>
+            <a href="https://vimeo.com/" title="Vimeo"><img src="images/Vimeo.png" alt="Vimeo"/></a>
+            <a href="https://twitter.com/" title="Twitter"><img src="images/Twitter.png" alt="Twitter"/></a>
+            <a href="https://facebook.com/" title="Facebook"><img src="images/Facebook.png" alt="Facebook"/></a>
+            <a href="https://www.pinterest.com/" title="Pinterest"><img src="images/Pinterest.png" alt="Pinterest"/></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="images/Instagram.png" alt="Instagram"/></a>
+        </div>
+        <div class="centered-container bottom-container">
+            <div class="footer-storeinfo">
+                <div class="header-logo">
+                    <image src="images/Logo.png" alt="Logo" />
+                    <span class="big-txt">Offliner</span>
+                </div>
+                <div class="footer-top-slogan">Сходят с ума только те, у кого он есть.</div>
+                <div class="storeinfo-info">
+                    <span class="storeinfo-desc">Адрес:</span>
+                    <span class="storeinfo-info">ул. Магазинная, 1а</span>
+                </div>
+                <div class="storeinfo-info">
+                    <span class="storeinfo-desc">Телефон:</span>
+                    <span class="storeinfo-info">+375 29 22-81-337</span>
+                </div>
+                <div class="storeinfo-info">
+                    <span class="storeinfo-desc">Email:</span>
+                    <span class="storeinfo-info">info@offliner.com</span>
+                </div>
+            </div>
+            <ul class="footer-uselesslinks">
+                <li>
+                    <span class="uselesslinks-header big-txt">О Компании</span>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Купоны</a></li>
+                        <li><a href="#">Специальные предложения</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="uselesslinks-header big-txt">Политика</span>
+                    <ul>
+                        <li><a href="#">Заказы и возврат средств</a></li>
+                        <li><a href="#">Помощь и справка</a></li>
+                        <li><a href="#">Расположение точек</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="uselesslinks-header big-txt">Мой аккаунт</span>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Информация о доставке</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copy">
+            <div class="centered-container">
+                <span class="big-txt">&copy; Олексис софтварь девелопмент ПРОФЭШНАЛ индастриз - 2020</span>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="scripts/AddReview.js"></script>
+<script>setFormListeners("add_review");</script>
+</html>

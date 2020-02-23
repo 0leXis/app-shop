@@ -555,8 +555,12 @@ span.slider-dot {
     margin: 3px 0;
 }
 
-.product-stars{
+.product-stars, .product-stars-choose{
     display: flex;
+}
+
+.product-stars-choose{
+    font-size: 20px;
 }
 
 .yellow-star:after{
@@ -600,7 +604,7 @@ span.slider-dot {
     display: none;
 }
 
-.products-block-product .product-shortdesc{
+.product-shortdesc{
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.2em;
@@ -746,7 +750,12 @@ footer .centered-container.bottom-container{
     font-size: 14px;
 }
 
-.storeinfo-desc{
+.product-additionalinfo span{
+    font-family: RobotoLight, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.storeinfo-desc, .product-additionalinfo span.info-header{
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
@@ -1067,7 +1076,7 @@ td div.delete-cross-btn{
     flex-direction: column;
 }
 
-.team-info h2{
+.team-info h2, .product-reviews-block h2{
     text-transform: uppercase;
     font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -1212,27 +1221,31 @@ td div.delete-cross-btn{
 	margin-bottom: 70px;
 }
 
-.contact-form, .contacts-info, .login-container form, .delivery-form{
+.contact-form, .contacts-info, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form{
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
 }
 
-.contact-form, .login-container form, .delivery-form{
+.product-desc form{
+    max-width: 100px;
+}
+
+.contact-form, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form{
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2{
+.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2, .product-reviews-block form h2{
 	font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
-.contact-form label, .login-container label, .delivery-form label{
+.contact-form label, .login-container label, .delivery-form label, .product-desc form label, .product-reviews-block form label{
 	margin-top: 15px;
 }
 
-.contact-form input, .contact-form textarea, .login-container input, .login-container textarea, .delivery-form input, .delivery-form select{
+.contact-form input, .contact-form textarea, .login-container input, .login-container textarea, .delivery-form input, .delivery-form select, .product-desc form input, .product-reviews-block form textarea{
     border-color: #e8e8e8;
     border-style: solid;
     border-width: 1px;
@@ -1243,6 +1256,10 @@ td div.delete-cross-btn{
 	width: 300px;
 }
 
+.product-desc form input{
+    width: 50px;
+}
+
 .delivery-form select{
     width: calc(300px + 18px);
 }
@@ -1251,11 +1268,11 @@ td div.delete-cross-btn{
     margin-bottom: 30px;
 }
 
-.contact-form textarea, .login-container textarea{
+.contact-form textarea, .login-container textarea, .product-reviews-block form textarea{
 	height: 150px;
 }
 
-.contact-form input[type="submit"], .login-container input[type="submit"]{
+.contact-form input[type="submit"], .login-container input[type="submit"], .product-desc form input[type="submit"], .product-reviews-block button, .product-reviews-block form input[type="submit"]{
     margin-top: 20px;
     border-color: #e5e5e5;
     border-radius: 5px;
@@ -1267,7 +1284,7 @@ td div.delete-cross-btn{
     color: black;
 }
 
-.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover{
+.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover, .product-desc form input[type="submit"]:hover, .product-reviews-block button:hover, .product-reviews-block input[type="submit"]:hover{
     cursor: pointer;
     background-color: #408de4;
     color: white;
@@ -1333,4 +1350,110 @@ td div.delete-cross-btn{
 .cart-totals-value{
 	font-family: RobotoMedium, Arial, Helvetica, sans-serif;
     font-size: 14px;
+}
+
+.product-desc-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-desc-block img{
+    max-width: 500px;
+}
+
+.product-desc{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-desc h2{
+    margin-bottom: 10px;
+    font-family: PoppinsSemiBold, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.product-raiting-block{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.product-raiting-block span{
+    margin-left: 10px;
+    margin-top: 3px;
+    color: #838383;
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.product-price-block{
+    font-family: PoppinsMedium, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-price-block .old-price{
+    text-decoration: line-through;
+    color: #838383;
+}
+
+.product-additionalinfo, .in-stock{
+    margin: 5px 0;
+}
+
+.in-stock{
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: green;
+}
+
+.product-desc-block{
+    border-color: #e5e5e5;
+    border-style: solid;
+    border-bottom-width: 1px;
+}
+
+.product-reviews-block{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.product-reviews{
+    margin-right: 15px;
+}
+
+.customer-review{
+    margin: 10px 0;
+    padding: 20px;
+    border-color: #e5e5e5;
+    border-style: solid;
+    border-width: 1px;
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #434343;
+}
+
+.review-header{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.review-data{
+    margin-right: 10px;
+}
+
+.review-data .customer-name{
+    font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.review-data .review-date{
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #999999;
+}
+
+.review-data .review-date:before{
+    content: ' - ';
 }
