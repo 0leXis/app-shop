@@ -750,12 +750,12 @@ footer .centered-container.bottom-container{
     font-size: 14px;
 }
 
-.product-additionalinfo span{
+.product-additionalinfo span, .order-detail span{
     font-family: RobotoLight, Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
-.storeinfo-desc, .product-additionalinfo span.info-header{
+.storeinfo-desc, .product-additionalinfo span.info-header, .order-detail span.order-header{
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
@@ -1076,11 +1076,15 @@ td div.delete-cross-btn{
     flex-direction: column;
 }
 
-.team-info h2, .product-reviews-block h2{
+.team-info h2, .product-reviews-block h2, .order-details h2{
     text-transform: uppercase;
     font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.order-details h2{
+    margin-bottom: 10px;
 }
 
 .team-info p:first-of-type{
@@ -1456,4 +1460,24 @@ td div.delete-cross-btn{
 
 .review-data .review-date:before{
     content: ' - ';
+}
+
+.order-details{
+    margin-bottom: 20px;
+}
+.order-status{
+    font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.status-red{
+    color: red;
+}
+
+.status-green{
+    color: green;
+}
+
+.status-orange{
+    color: orangered;
 }
