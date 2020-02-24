@@ -833,7 +833,7 @@ footer .centered-container.bottom-container{
     min-width: 230px;
 }
 
-.shop-sidebar-column, .products-table{
+.shop-sidebar-column, .products-table, .orders-table{
     border-style: solid;
     border-color: #e8e8e8;
     border-width: 1px;
@@ -845,24 +845,29 @@ footer .centered-container.bottom-container{
     margin-bottom: 0;
 }
 
-.products-table{
+.products-table, .orders-table{
 	width: 100%;
 }
 
-.products-table tr{
+.products-table tr, .orders-table tr{
 	border-style: solid;
     border-color: #e8e8e8;
     border-top-width: 1px;
 	text-align: center;
 }
 
-.products-table td{
+.orders-table tr:not(:first-child):hover{
+    cursor: pointer;
+    background-color: #e8e8e8;
+}
+
+.products-table td, .orders-table td{
 	vertical-align: middle;
 	font-family:RobotoMedium, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.shop-sidebar-columnheader, .products-table th{
+.shop-sidebar-columnheader, .products-table th, .orders-table th{
     padding: 12px 0;
     background-color: #f8f8f8;
     font-family: RalewayBold, Arial, Helvetica, sans-serif;
@@ -870,12 +875,16 @@ footer .centered-container.bottom-container{
 	text-transform: uppercase;
 }
 
-td.table-product{
+td.table-product, td.table-order{
 	display: flex;
 	align-items: center;
 	color: #888888;
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
+}
+
+td.table-order{
+    padding: 30px 5px;
 }
 
 td div.delete-cross-btn{
