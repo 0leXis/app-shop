@@ -400,9 +400,14 @@ span.slider-dot {
     border-color: #ebb651;
 }
 
-.products-sidebar{
+.products-sidebar, .admin-main nav ul{
     background-color: #222222;
     min-width: 170px;
+}
+
+.admin-main nav ul{
+    max-width: 300px;
+    padding: 50px 0;
 }
 
 .products-sidebar-header{
@@ -434,7 +439,7 @@ span.slider-dot {
     background-color: #ebb651;
 }
 
-.products-sidebar-categories li{
+.products-sidebar-categories li, .admin-main nav li{
     padding: 10px 0;
     padding-left: 20px;
     border-style: solid;
@@ -445,12 +450,18 @@ span.slider-dot {
     font-size: 14px;
 }
 
-.products-sidebar-categories li:hover{
+.admin-main nav li{
+    padding: 20px 0;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.products-sidebar-categories li:hover, .admin-main nav li:hover{
     color: white;
     cursor: pointer;
 }
 
-.products-block.blue-bgc .products-sidebar-categories li:hover{
+.products-block.blue-bgc .products-sidebar-categories li:hover, .admin-main nav li:hover{
     background-color: #408de4;
 }
 
@@ -462,7 +473,7 @@ span.slider-dot {
     background-color: #ebb651;
 }
 
-.products-sidebar-categories li:last-child{
+.products-sidebar-categories li:last-child, .admin-main nav li:last-child{
     border-bottom-width: 1px;
 }
 
@@ -560,6 +571,7 @@ span.slider-dot {
 }
 
 .product-stars-choose{
+    cursor: pointer;
     font-size: 20px;
 }
 
@@ -1085,11 +1097,15 @@ td div.delete-cross-btn{
     flex-direction: column;
 }
 
-.team-info h2, .product-reviews-block h2, .order-details h2{
+.team-info h2, .product-reviews-block h2, .order-details h2, .admin-main-header h2{
     text-transform: uppercase;
     font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.admin-main-header h2{
+    font-size: 24px;
 }
 
 .order-details h2{
@@ -1103,11 +1119,15 @@ td div.delete-cross-btn{
     margin: 20px 0;
 }
 
-.team-info p{
+.team-info p, .admin-main-header p{
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.3em;
     margin-bottom: 20px;
+}
+
+.admin-main-header p{
+    font-size: 18px;
 }
 
 .team-features{
@@ -1489,4 +1509,29 @@ td div.delete-cross-btn{
 
 .status-orange{
     color: orangered;
+}
+
+.header-blueline, .footer-blueline{
+    background-color: #408de4;
+    height: 46px;
+}
+
+.admin-main{
+    display: flex;
+}
+
+.admin-main aside{
+    margin-left: 20px;
+}
+
+.admin-main .content, .admin-main-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+footer.admin-pannel-footer{
+    border-top: none;
 }
