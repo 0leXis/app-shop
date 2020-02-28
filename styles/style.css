@@ -401,7 +401,6 @@ span.slider-dot {
 }
 
 .products-sidebar, .admin-main nav ul{
-    background-color: #222222;
     min-width: 170px;
 }
 
@@ -899,7 +898,7 @@ td.table-order{
     padding: 30px 5px;
 }
 
-td div.delete-cross-btn{
+td div.delete-cross-btn, td div.change-btn{
 	cursor: pointer;
 	margin: 0 auto;
 	display: flex;
@@ -907,13 +906,16 @@ td div.delete-cross-btn{
 	justify-content: center;
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 18px;
-	color: red;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #e8e8e8;
 	border-radius: 30px;
 	width: 20px;
 	height: 20px;
+}
+
+td div.delete-cross-btn{
+	color: red;
 }
 
 .table-product img{
@@ -1254,7 +1256,7 @@ td div.delete-cross-btn{
 	margin-bottom: 70px;
 }
 
-.contact-form, .contacts-info, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form{
+.contact-form, .contacts-info, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .product-add-form{
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
@@ -1264,21 +1266,21 @@ td div.delete-cross-btn{
     max-width: 100px;
 }
 
-.contact-form, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form{
+.contact-form, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .product-add-form{
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2, .product-reviews-block form h2{
+.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2, .product-reviews-block form h2, .product-add-form h2{
 	font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
-.contact-form label, .login-container label, .delivery-form label, .product-desc form label, .product-reviews-block form label{
+.contact-form label, .login-container label, .delivery-form label, .product-desc form label, .product-reviews-block form label, .product-add-form label{
 	margin-top: 15px;
 }
 
-.contact-form input, .contact-form textarea, .login-container input, .login-container textarea, .delivery-form input, .delivery-form select, .product-desc form input, .product-reviews-block form textarea{
+.contact-form input, .contact-form textarea, .login-container input, .login-container textarea, .delivery-form input, .delivery-form select, .product-desc form input, .product-reviews-block form textarea, .product-add-form input, .product-add-form textarea, .product-add-form select {
     border-color: #e8e8e8;
     border-style: solid;
     border-width: 1px;
@@ -1293,7 +1295,7 @@ td div.delete-cross-btn{
     width: 50px;
 }
 
-.delivery-form select{
+.delivery-form select, .product-add-form select{
     width: calc(300px + 18px);
 }
 
@@ -1301,11 +1303,11 @@ td div.delete-cross-btn{
     margin-bottom: 30px;
 }
 
-.contact-form textarea, .login-container textarea, .product-reviews-block form textarea{
+.contact-form textarea, .login-container textarea, .product-reviews-block form textarea, .product-add-form textarea{
 	height: 150px;
 }
 
-.contact-form input[type="submit"], .login-container input[type="submit"], .product-desc form input[type="submit"], .product-reviews-block button, .product-reviews-block form input[type="submit"]{
+.contact-form input[type="submit"], .login-container input[type="submit"], .product-desc form input[type="submit"], .product-reviews-block button, .product-reviews-block form input[type="submit"], .product-add-form button{
     margin-top: 20px;
     border-color: #e5e5e5;
     border-radius: 5px;
@@ -1317,7 +1319,7 @@ td div.delete-cross-btn{
     color: black;
 }
 
-.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover, .product-desc form input[type="submit"]:hover, .product-reviews-block button:hover, .product-reviews-block input[type="submit"]:hover{
+.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover, .product-desc form input[type="submit"]:hover, .product-reviews-block button:hover, .product-reviews-block input[type="submit"]:hover, .product-add-form button:hover{
     cursor: pointer;
     background-color: #408de4;
     color: white;
@@ -1522,6 +1524,7 @@ td div.delete-cross-btn{
 
 .admin-main aside{
     margin-left: 20px;
+    background-color: #222222;
 }
 
 .admin-main .content, .admin-main-header{
@@ -1529,9 +1532,17 @@ td div.delete-cross-btn{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: calc(100% - 50px);
 }
 
 footer.admin-pannel-footer{
     border-top: none;
+}
+
+.content .products-table{
+    width: calc(100% - 50px);
+}
+
+.admin-main .content{
+    margin-bottom: 30px;
 }
