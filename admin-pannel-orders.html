@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Offliner - Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-login">
+            <div class="centered-container">
+                <a href="#">Вход/Регистрация</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="centered-container">
+                <div class="header-logo">
+                    <image src="images/Logo.png" alt="Logo" />
+                    <span class="big-txt">Offliner</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-blueline">
+        </div>
+    </header>
+    <div class="admin-main">
+        <aside>
+            <nav>
+                <ul>
+                    <li>Товары</li>
+                    <li>Сотрудники</li>
+                    <li>Заказы</li>
+                    <li>Поставки</li>
+                    <li>Редактирование дополнительной информации</li>
+                    <li>Просмотр Log</li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="content">
+            <div class="main-header">
+                <h1 class="big-txt">Управление заказами</h1>
+            </div>
+            <div class="header-search">
+                <form name="search" method="GET" action="#">
+                    <h2>Поиск по ID</h2>
+                    <input type="text" name="search_string" placeholder="Искать..." />
+                    <button type="submit">
+                        <img src="images/Search.png" />
+                    </button>
+                </form>
+            </div>
+            <table class="orders-table">
+				<tr>
+                    <th>ID</th>
+                    <th>Дата</th>
+                    <th>Email покупателя</th>
+                    <th>Телефон</th>
+                    <th>Адрес доставки</th>
+                    <th>Почтовый индекс</th>
+                    <th>Платная доставка</th>
+                    <th>Итоговая стоимость</th>
+                    <th>Статус</th>
+                    <th>ID администратора</th>
+                    <th>Изменить</th>
+				</tr>
+				<tr>
+                    <td>1</td>
+                    <td>24.23.3434</td>
+                    <td>flex@flex.flex</td>
+                    <td>+243434343</td>
+                    <td>Россия, Москва, ул. Московская д. 49, кв. 45</td>
+                    <td>456656</td>
+                    <td>Да</td>
+                    <td>$500</td>
+                    <td>Отменен</td>
+                    <td>12</td>
+                    <td><div class="change-btn">&#10001;</div></td>
+				</tr>
+				<tr>
+                    <td>1</td>
+                    <td>24.23.3434</td>
+                    <td>flex@flex.flex</td>
+                    <td>+243434343</td>
+                    <td>Россия, Москва, ул. Московская д. 49, кв. 45</td>
+                    <td>456656</td>
+                    <td>Да</td>
+                    <td>$500</td>
+                    <td>Отменен</td>
+                    <td>12</td>
+                    <td><div class="change-btn">&#10001;</div></td>
+				</tr>
+				<tr>
+                    <td>1</td>
+                    <td>24.23.3434</td>
+                    <td>flex@flex.flex</td>
+                    <td>+243434343</td>
+                    <td>Россия, Москва, ул. Московская д. 49, кв. 45</td>
+                    <td>456656</td>
+                    <td>Да</td>
+                    <td>$500</td>
+                    <td>Отменен</td>
+                    <td>12</td>
+                    <td><div class="change-btn">&#10001;</div></td>
+				</tr>
+            </table>
+            <h2>Товары в заказе</h2>
+            <table class="products-table">
+				<tr>
+                    <th>Товар</th>
+                    <th>Артикул</th>
+                    <th>Цена со скидкой</th>
+                    <th>Кол-во</th>
+				</tr>
+				<tr>
+					<td class="table-product">
+						<img src="images/TV.jpg" alt="Product"/>
+						<span>TV Pro 32 GB</span>
+                    </td>
+                    <td>435454</td>
+                    <td>$456</td>
+                    <td>2</td>
+				</tr>
+				<tr>
+					<td class="table-product">
+						<img src="images/TV.jpg" alt="Product"/>
+						<span>TV Pro 32 GB</span>
+                    </td>
+                    <td>435454</td>
+                    <td>$456</td>
+                    <td>2</td>
+				</tr>
+				<tr>
+					<td class="table-product">
+						<img src="images/TV.jpg" alt="Product"/>
+						<span>TV Pro 32 GB</span>
+                    </td>
+                    <td>435454</td>
+                    <td>$456</td>
+                    <td>2</td>
+				</tr>
+            </table>
+            <form class="order-change-form" method="POST" action="#">
+                <h2 class="big-txt">Изменить статус заказа</h2>
+                <label>ID<span class="required-field"></span></label>
+                <input type="text" required name="order_id"/>
+                <label>Статус<span class="required-field"></span></label>
+                <select name="order_status" required>
+                    <option>Кастрюли</option>
+                    <option>Сковородки</option>
+                </select>
+                <button>
+                    Редактировать
+                </button>
+            </form>
+        </div>
+    </div>
+    <footer class="admin-pannel-footer">
+        <div class="footer-blueline">
+        </div>
+        <div class="centered-container bottom-container">
+            <div class="footer-storeinfo">
+                <div class="header-logo">
+                    <image src="images/Logo.png" alt="Logo" />
+                    <span class="big-txt">Offliner</span>
+                </div>
+                <div class="footer-top-slogan">Сходят с ума только те, у кого он есть.</div>
+                <div class="footer-storeinfo-info">
+                    <span class="footer-info-desc">Адрес:</span>
+                    <span class="footer-info-info">ул. Магазинная, 1а</span>
+                </div>
+                <div class="footer-storeinfo-info">
+                    <span class="footer-info-desc">Телефон:</span>
+                    <span class="footer-info-info">+375 29 22-81-337</span>
+                </div>
+                <div class="footer-storeinfo-info">
+                    <span class="footer-info-desc">Email:</span>
+                    <span class="footer-info-info">info@offliner.com</span>
+                </div>
+            </div>
+            <ul class="footer-uselesslinks">
+                <li>
+                    <span class="uselesslinks-header big-txt">О Компании</span>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Купоны</a></li>
+                        <li><a href="#">Специальные предложения</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="uselesslinks-header big-txt">Политика</span>
+                    <ul>
+                        <li><a href="#">Заказы и возврат средств</a></li>
+                        <li><a href="#">Помощь и справка</a></li>
+                        <li><a href="#">Расположение точек</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="uselesslinks-header big-txt">Мой аккаунт</span>
+                    <ul>
+                        <li><a href="#">Информация о доставке</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copy">
+            <div class="centered-container">
+                <span class="big-txt">&copy; Олексис софтварь девелопмент ПРОФЭШНАЛ индастриз - 2020</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

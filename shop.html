@@ -108,7 +108,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="shop-itemgrid">
+            <div class="shop">
                 <div class="shop-itemsheader">
                     <span class="big-txt">Showing 1-16 from 24 products</span>
                     <div class="buttons-block">
@@ -117,177 +117,237 @@
                             <option>24</option>
                             <option>32</option>
                         </select>
-                        <button class="pressed">
+                        <button class="pressed" name="shop_gridstyle_btn" onclick="setGridStyle(this)">
                             <img src="images/ProductGrid.png" alt="Grid style"/>
                         </button>
-                        <button class="released">
+                        <button class="released" name="shop_liststyle_btn" onclick="setListStyle(this)">
                             <img src="images/ProductList.png" alt="List style"/>
                         </button>
                     </div>
                 </div>
-                <div class="shop-items">
+                <div class="shop-items-grid" name="shop_2styles">
                     <div class="products-block-product">
+                        <!--TODO: Revork onclick to something better-->
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                                <button>В корзину</button>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                                <button>В корзину</button>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                                <button>В корзину</button>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                                <button>В корзину</button>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
                     <div class="products-block-product">
                         <div class="product-container" onclick="window.location = 'toptovar'">
                             <img src="images/TV.jpg" alt="TV" />
-                            <span class="product-name">TV Pro Dark Theme (32GB)</span>
-                            <span class="product-price">$228.13</span>
-                            <ul class="product-stars">
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="yellow-star"></li>
-                                <li class="dark-star"></li>
-                            </ul>
+                            <div class="product-innerinfo">
+                                <span class="product-name">TV Pro Dark Theme (32GB)</span>
+                                <span class="product-price">$228.13</span>
+                                <ul class="product-stars">
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="yellow-star"></li>
+                                    <li class="dark-star"></li>
+                                </ul>
+                                <div class="product-shortdesc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis minus facere molestias, eos quibusdam autem maxime quod vel laborum sed delectus veniam nulla culpa aspernatur, reprehenderit provident officiis molestiae facilis!
+                                </div>
+                            </div>
                         </div>
                         <button>В корзину</button>
                     </div>
@@ -384,6 +444,6 @@
             </div>
         </div>
     </footer>
+    <script src="scripts/ChangeShopStyle.js"></script>
 </body>
-
 </html>
