@@ -1103,11 +1103,15 @@ td div.delete-cross-btn{
     flex-direction: column;
 }
 
-.team-info h2, .product-reviews-block h2, .order-details h2, .admin-main-header h2, .header-search h2{
+.team-info h2, .product-reviews-block h2, .order-details h2, .admin-main-header h2, .header-search h2, .admin-main .content h2{
     text-transform: uppercase;
     font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.admin-main .content h2{
+    margin-bottom: 10px;
 }
 
 .admin-main-header h2{
@@ -1547,7 +1551,7 @@ footer.admin-pannel-footer{
     width: calc(100% - 50px);
 }
 
-.content .header-search{
+.admin-main .content .header-search{
     margin-bottom: 10px;
 }
 
