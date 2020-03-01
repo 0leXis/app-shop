@@ -35,6 +35,8 @@
                     <li>Заказы</li>
                     <li>Поставки</li>
                     <li>Склады</li>
+                    <li>Производители</li>
+                    <li>Поставщики</li>
                     <li>Редактирование дополнительной информации</li>
                     <li>Просмотр Log</li>
                 </ul>
@@ -42,106 +44,61 @@
         </aside>
         <div class="content">
             <div class="main-header">
-                <h1 class="big-txt">Управление поставками</h1>
+                <h1 class="big-txt">Управление производителями</h1>
             </div>
             <div class="header-search">
                 <form name="search" method="GET" action="#">
-                    <h2>Поиск по Номеру склада</h2>
+                    <h2>Поиск по ID</h2>
                     <input type="text" name="search_string" placeholder="Искать..." />
                     <button type="submit">
                         <img src="images/Search.png" />
                     </button>
                 </form>
             </div>
-            <table class="warehouses-table">
+            <table class="manufacturers-table">
 				<tr>
-                    <th>Номер склада</th>
-                    <th>Адрес</th>
-                    <th>Зав. Складом</th>
-				</tr>
-				<tr>
-                    <td>1</td>
-                    <td>ул. Московская д. 28</td>
-                    <td>Олексис Олексис Олексис</td>
-				</tr>
-				<tr>
-                    <td>1</td>
-                    <td>ул. Московская д. 28</td>
-                    <td>Олексис Олексис Олексис</td>
-				</tr>
-				<tr>
-                    <td>1</td>
-                    <td>ул. Московская д. 28</td>
-                    <td>Олексис Олексис Олексис</td>
-				</tr>
-            </table>
-            <h2>Товары на складе</h2>
-            <table class="products-table">
-				<tr>
-                    <th>Товар</th>
-                    <th>Артикул</th>
-                    <th>Цена со скидкой</th>
-                    <th>Кол-во</th>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Страна</th>
+                    <th>Email</th>
                     <th>Редактировать</th>
 					<th>Удалить</th>
 				</tr>
 				<tr>
-					<td class="table-product">
-						<img src="images/TV.jpg" alt="Product"/>
-						<span>TV Pro 32 GB</span>
-                    </td>
-                    <td>435454</td>
-                    <td>$456</td>
-                    <td>2</td>
+                    <td>1</td>
+                    <td>ООО JOJO</td>
+                    <td>Россия</td>
+                    <td>flex@flex.flex</td>
                     <td><div class="change-btn">&#10001;</div></td>
                     <td><div class="delete-cross-btn">&times;</div></td>
 				</tr>
 				<tr>
-					<td class="table-product">
-						<img src="images/TV.jpg" alt="Product"/>
-						<span>TV Pro 32 GB</span>
-                    </td>
-                    <td>435454</td>
-                    <td>$456</td>
-                    <td>2</td>
+                    <td>1</td>
+                    <td>ООО JOJO</td>
+                    <td>Россия</td>
+                    <td>flex@flex.flex</td>
                     <td><div class="change-btn">&#10001;</div></td>
                     <td><div class="delete-cross-btn">&times;</div></td>
 				</tr>
 				<tr>
-					<td class="table-product">
-						<img src="images/TV.jpg" alt="Product"/>
-						<span>TV Pro 32 GB</span>
-                    </td>
-                    <td>435454</td>
-                    <td>$456</td>
-                    <td>2</td>
+                    <td>1</td>
+                    <td>ООО JOJO</td>
+                    <td>Россия</td>
+                    <td>flex@flex.flex</td>
                     <td><div class="change-btn">&#10001;</div></td>
                     <td><div class="delete-cross-btn">&times;</div></td>
 				</tr>
             </table>
-            <form class="warehouse-product-form" method="POST" action="#">
-                <h2 class="big-txt">Изменить кол-во товара на складе</h2>
-                <label>ID товара<span class="required-field"></span></label>
-                <input type="text" required name="product_id"/>
-                <label>Склад<span class="required-field"></span></label>
-                <select name="product_warehouse" required>
-                    <option>Кастрюли</option>
-                    <option>Сковородки</option>
-                </select>
-                <label>Кол-во (0 - удалить товар со склада)<span class="required-field"></span></label>
-                <input type="number" required name="product_count" min="0"/>
-                <button name="add_product">
-                    Редактировать
-                </button>
-            </form>     
-            <form class="warehouse-add-form" method="POST" action="#">
-                <h2 class="big-txt">Добавить/Изменить склад</h2>
-                <label>Номер<span class="required-field"></span></label>
-                <input type="text" required name="warehouse_id"/>
-                <label>Адрес<span class="required-field"></span></label>
-                <input type="text" required name="warehouse_address"/>
-                <label>Зав. складом<span class="required-field"></span></label>
-                <select name="warehouse_manager" required>
+            <form class="manufacturer-form" method="POST" action="#">
+                <h2 class="big-txt">Добавить/Изменить производителя</h2>
+                <label>ID<span class="required-field"></span></label>
+                <input type="text" required name="manufacturer_id"/>
+                <label>Название<span class="required-field"></span></label>
+                <input type="text" required name="manufacturer_name"/>
+                <label>Описание<span class="required-field"></span></label>
+                <textarea name="manufacturer_desc" required></textarea>
+                <label>Страна<span class="required-field"></span></label>
+                <select name="manufacturer_country" required>
                     <option>Кастрюли</option>
                     <option>Сковородки</option>
                 </select>
