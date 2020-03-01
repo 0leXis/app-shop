@@ -239,6 +239,54 @@
                         </button>
                     </form>
                 </div>
+                <div class="additional-info">
+                    <h2>Методы оплаты</h2>
+                    <div class="header-search">
+                        <form name="search" method="GET" action="#">
+                            <h2>Поиск по ID</h2>
+                            <input type="text" name="search_string" placeholder="Искать..." />
+                            <button type="submit">
+                                <img src="images/Search.png" />
+                            </button>
+                        </form>
+                    </div>
+                    <table class="additionalinfo-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Редактировать</th>
+                            <th>Удалить</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Visa</td>
+                            <td><div class="change-btn">&#10001;</div></td>
+                            <td><div class="delete-cross-btn">&times;</div></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Visa</td>
+                            <td><div class="change-btn">&#10001;</div></td>
+                            <td><div class="delete-cross-btn">&times;</div></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Visa</td>
+                            <td><div class="change-btn">&#10001;</div></td>
+                            <td><div class="delete-cross-btn">&times;</div></td>
+                        </tr>
+                    </table>
+                    <form class="additionalinfo-form" method="POST" action="#">
+                        <h2 class="big-txt">Добавить/Изменить метод оплаты</h2>
+                        <label>ID<span class="required-field"></span></label>
+                        <input type="text" required name="method_id"/>
+                        <label>Название<span class="required-field"></span></label>
+                        <input type="text" required name="method_name"/>
+                        <button>
+                            Редактировать
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
