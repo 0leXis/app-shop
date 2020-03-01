@@ -404,6 +404,10 @@ span.slider-dot {
     min-width: 170px;
 }
 
+.products-sidebar{
+    background-color: #191919;
+}
+
 .admin-main nav ul{
     max-width: 300px;
     padding: 50px 0;
