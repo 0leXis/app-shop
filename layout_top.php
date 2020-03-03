@@ -1,5 +1,6 @@
 <?php
-    //TODO: session here
+    if(!isset($_SESSION))
+        session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,23 @@
     <header>
         <div class="header-login">
             <div class="centered-container">
-                <a href="login.php">Вход/Регистрация</a>
+                <?php
+                    if(isset($_SESSION['user_id'])){
+                        echo "<span>" . $_SESSION['user_email'] . "</span>";
+                        echo "<span>|</span>";
+                        if($_SESSION['user_isadmin']){
+                            echo '<a href="admin-pannel.php">Панель администратора</a>';
+                        }
+                        else{
+                            echo '<a href="orders.php">Мои заказы</a>';
+                        }
+                        echo "<span>|</span>";
+                        echo '<a href="modules/logout.php">Выйти из аккаунта</a>';
+                    }
+                    else{
+                        echo '<a href="login.php">Вход/Регистрация</a>';
+                    }
+                ?>
             </div>
         </div>
         <div class="header-main">

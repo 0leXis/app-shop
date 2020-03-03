@@ -61,7 +61,8 @@
     letter-spacing: 1px;
 }
 
-.header-login a{
+.header-login a, .header-login span{
+    margin-right: 5px;
     text-decoration: none;
     color: #777777;
 }
@@ -1346,6 +1347,13 @@ td div.delete-cross-btn{
     cursor: pointer;
     background-color: #408de4;
     color: white;
+}
+
+form p.error-str{
+    margin-top: 10px;
+    color: red;
+    font-family: RobotoRegular, Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .required-field:after{

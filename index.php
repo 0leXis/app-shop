@@ -1,5 +1,5 @@
 <?php
-    $TITLE = "Index";
+    $TITLE = "Главная";
     include("layout_top.php");
 ?>
     <div class="main centered-container">
