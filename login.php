@@ -1,34 +1,35 @@
 <?php
     session_start();
-    if(isset($_SESSION['user_id']))
+    if(isset($_SESSION['user_id'])){
         header('Location: ..\index.php');
+        die();
+    }
 
     function login(){
         if(isset($_POST['email']) && isset($_POST['password'])){
-            require_once('modules/connection.php');
             require_once('modules/hash.php');
-    
-            $users = $mysqli->query('SELECT id, email, password, salt, true as admin FROM workers WHERE email = \'' . $_POST['email'] . '\' UNION SELECT id, email, password, salt, false as admin FROM customers WHERE email = \'' . $_POST['email'] . '\'');
-            if ($mysqli->errno){
-                die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
-            }
+            require_once('modules/DB_utils.php');
+            $users = execProcedure('GetLoginInfo', $_POST['email']);
             if($row = mysqli_fetch_array($users)){
                 if(compareHash($_POST['password'], $row['password'], $row['salt'])){
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['user_email'] = $row['email'];
                     $_SESSION['user_isadmin'] = $row['admin'] == '1' ? true : false;
                     header('Location: ..\index.php');
+                    mysqli_free_result($users);
+                    die();
                 }
                 else{
                     return("Введен некорректный пароль");
                 }
             }
             else{
+                mysqli_free_result($users);
                 return("Пользователя с таким Email не существует");
             }
         }
         else{
-            header('Location: ..\ErrorPages\400.html');
+            error400();
         }
     }
 
@@ -43,7 +44,7 @@
         if(isset($_POST['registration']))
             $registration_error = registration();
         else
-            header('Location: ..\ErrorPages\400.html');
+            error400();
     }
 ?>
 <?php

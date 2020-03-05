@@ -1,11 +1,12 @@
 <?php
+    require_once('modules\error_pages.php');
+
     if(!isset($_SESSION))
         session_start();
     if(!isset($_SESSION['user_isadmin']))
-        header("Location: ErrorPages/401.html");
-    else
+        error401();
     if($_SESSION['user_isadmin'] != true)
-        header("Location: ErrorPages/403.html");
+        error403();
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <script src="scripts/jquery-3.4.1.js"></script>
 </head>
 
 <body>

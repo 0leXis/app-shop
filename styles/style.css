@@ -933,6 +933,11 @@ td div.delete-cross-btn{
 	color: red;
 }
 
+td.table-nodata{
+    padding: 15px 0;
+    font-size: 16px;
+}
+
 .table-product img{
 	width: 130px;
 	height: 100px;
@@ -1310,7 +1315,7 @@ td div.delete-cross-btn{
 .warehouse-product-form input, .warehouse-product-form select, 
 .warehouse-add-form input, .warehouse-add-form select, 
 .manufacturer-form input, .manufacturer-form select, .manufacturer-form textarea,
-.additionalinfo-form input{
+.additionalinfo-form input, .additionalinfo-form select{
     border-color: #e8e8e8;
     border-style: solid;
     border-width: 1px;
@@ -1325,7 +1330,7 @@ td div.delete-cross-btn{
     width: 50px;
 }
 
-.delivery-form select, .product-add-form select, .staff-add-form select, .order-change-form select, .warehouse-product-form select, .warehouse-add-form select, .manufacturer-form select{
+.delivery-form select, .product-add-form select, .staff-add-form select, .order-change-form select, .warehouse-product-form select, .warehouse-add-form select, .manufacturer-form select, .additionalinfo-form select{
     width: calc(300px + 18px);
 }
 
@@ -1355,7 +1360,7 @@ td div.delete-cross-btn{
     color: white;
 }
 
-form p.error-str{
+p.error-str{
     margin-top: 10px;
     color: red;
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
