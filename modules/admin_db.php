@@ -1,5 +1,5 @@
 <?php
-    //TODO: валидация
+    //TODO: валидация на клиенте и сервере
     require_once("error_pages.php");
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         require_once("DB_utils.php");
@@ -77,6 +77,39 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'staff_form':
+                    require("hash.php");
+                    if($_POST['pass'] != $_POST['pass_conf']){
+                        echo 'Пароли не совпадают';
+                        die();
+                    }
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if($user = searchID('workers', $_POST['id'])){
+                            if($_POST['pass'] == "")
+                                $password = getHash($_POST['pass']);
+                            else
+                                $password = getHash($user[7]);
+                            execProcedure('ChangeWorker', $_POST['id'], $_POST['name'], $_POST['surname'], $_POST['lastname'], $_POST['role'], $_POST['salary'], $_POST['email'], $password['hash'], $password['salt']);
+                        }
+                        else{
+                            if($_POST['pass'] == ""){
+                                echo 'Для добавления пользователя ввод пароля обязателен!';
+                                die();
+                            }
+                            $password = getHash($_POST['pass']);
+                            execProcedure('CreateWorker', $_POST['name'], $_POST['surname'], $_POST['lastname'], $_POST['rolen'], $_POST['salary'], $_POST['email'], $password['hash'], $password['salt']);
+                        }
+                    }
+                    else{
+                        if($_POST['pass'] == ""){
+                            echo 'Для добавления пользователя ввод пароля обязателен!';
+                            die();
+                        }
+                        $password = getHash($_POST['pass']);
+                        execProcedure('CreateWorker', $_POST['name'], $_POST['surname'], $_POST['lastname'], $_POST['role'], $_POST['salary'], $_POST['email'], $password['hash'], $password['salt']);
+                    }
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
@@ -116,6 +149,12 @@
                 case 'method_form':
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         execProcedure('DeleteMethod', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'staff_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteWorker', $_POST['id']);
                     }
                     echo 'REFRESH';
                     die();

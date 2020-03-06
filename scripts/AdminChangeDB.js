@@ -1,4 +1,4 @@
-$('form.additionalinfo-form').submit(function(e){
+$('form.additionalinfo-form, form.staff-add-form').submit(function(e){
     e.preventDefault();
     let form_data = $(this).serializeArray();
     let run = true;
@@ -14,7 +14,13 @@ $('form.additionalinfo-form').submit(function(e){
                 document.location.reload();
             }
             else{
-                $('p.error-str').html(data);
+                try{
+                    locate = JSON.parse(data);
+                    document.location = locate['location'];
+                }
+                catch{
+                    $('p.error-str').html(data);
+                }
             }
         });
     }
@@ -54,24 +60,34 @@ $('form.search-form').submit(function(e){
 
 function setChangeInfo(target){
     let elements = new Array();
-    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form').find ('input[type="text"], textearea, select')
+    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.staff-add-form').find ('input[type="text"], input[type="email"], textearea, select')
     .each(function() { elements.push(this);});
     let curr_td = 0;
     for(let elem of elements){
-        elem.value = target.parentNode.parentNode.parentNode.getElementsByTagName("td")[curr_td].innerText;
+        let td = target.parentNode.parentNode.getElementsByTagName("td")[curr_td];
+        if(td.dataset.id != undefined)
+            elem.value = td.dataset.id;
+        else
+            elem.value = td.innerText;
         curr_td++;
     }
 }
 
 function deleteInfo(target, id){
     if(confirm("Вы уверены? Вы собираетесь удалить строку с id = " + id)){
-        let delete_form = $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form').find('input[type="hidden"]').val();
+        let delete_form = $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.staff-add-form').find('input[type="hidden"]').val();
         $.post('modules/admin_db.php', { delete_form : delete_form, id : id }).done(function(data) {
             if(data == 'REFRESH'){
                 document.location.reload();
             }
             else{
-                $('p.error-str').html(data);
+                try{
+                    locate = JSON.parse(data);
+                    document.location = locate['location'];
+                }
+                catch{
+                    $('p.error-str').html(data);
+                }
             }
         });
     }

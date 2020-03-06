@@ -64,7 +64,7 @@
                 <div class="additional-info">
                     <h2>Категории товаров</h2>
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
+                        <form name="search" method="GET">
                             <h2>Поиск</h2>
                             <?php
                                 if(isset($_GET['search_category_string'])){
@@ -116,7 +116,7 @@
                 <div class="additional-info">
                     <h2>Типы товаров</h2>
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
+                        <form name="search" method="GET">
                             <h2>Поиск</h2>
                             <?php
                                 if(isset($_GET['search_type_string'])){
@@ -154,7 +154,7 @@
 							}
                         ?>
                     </table>
-                    <form class="additionalinfo-form" method="POST" action="#">
+                    <form class="additionalinfo-form" method="POST">
                         <input type="hidden" name="form" value="type_form"/>
                         <h2 class="big-txt">Добавить/Изменить тип товара</h2>
                         <label>ID</label>
@@ -183,7 +183,7 @@
                 <div class="additional-info">
                     <h2>Должности</h2>
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
+                        <form name="search" method="GET">
                             <h2>Поиск</h2>
                             <?php
                                 if(isset($_GET['search_role_string'])){
@@ -220,7 +220,7 @@
 							}
                         ?>
                     </table>
-                    <form class="additionalinfo-form" method="POST" action="#">
+                    <form class="additionalinfo-form" method="POST">
                         <input type="hidden" name="form" value="role_form"/>
                         <h2 class="big-txt">Добавить/Изменить должность</h2>
                         <label>ID</label>
@@ -235,7 +235,7 @@
                 <div class="additional-info">
                     <h2>Статусы заказов</h2>
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
+                        <form name="search" method="GET">
                             <h2>Поиск</h2>
                             <?php
                                 if(isset($_GET['search_status_string'])){
@@ -272,7 +272,7 @@
 							}
                         ?>
                     </table>
-                    <form class="additionalinfo-form" method="POST" action="#">
+                    <form class="additionalinfo-form" method="POST">
                         <input type="hidden" name="form" value="status_form"/>
                         <h2 class="big-txt">Добавить/Изменить статус</h2>
                         <label>ID</label>
@@ -287,7 +287,7 @@
                 <div class="additional-info">
                     <h2>Методы оплаты</h2>
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
+                        <form name="search" method="GET">
                             <h2>Поиск</h2>
                             <?php
                                 if(isset($_GET['search_method_string'])){
@@ -324,7 +324,7 @@
 							}
                         ?>
                     </table>
-                    <form class="additionalinfo-form" method="POST" action="#">
+                    <form class="additionalinfo-form" method="POST">
                         <input type="hidden" name="form" value="method_form"/>
                         <h2 class="big-txt">Добавить/Изменить метод оплаты</h2>
                         <label>ID</label>
