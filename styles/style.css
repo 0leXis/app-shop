@@ -1280,7 +1280,7 @@ td.table-nodata{
 	margin-bottom: 70px;
 }
 
-.contact-form, .contacts-info, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .product-add-form, .staff-add-form, .order-change-form, .warehouse-product-form, .warehouse-add-form, .manufacturer-form, .additionalinfo-form{
+.contact-form, .contacts-info, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .admin-form, .additionalinfo-form{
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
@@ -1290,17 +1290,17 @@ td.table-nodata{
     max-width: 100px;
 }
 
-.contact-form, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .product-add-form, .staff-add-form, .order-change-form, .warehouse-product-form, .warehouse-add-form, .manufacturer-form, .additionalinfo-form{
+.contact-form, .login-container form, .delivery-form, .product-desc form, .product-reviews-block form, .admin-form, .additionalinfo-form{
 	font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2, .product-reviews-block form h2, .product-add-form h2, .staff-add-form h2, .order-change-form h2, .warehouse-product-form h2, .warehouse-add-form h2, .manufacturer-form h2, .additionalinfo-form h2{
+.contact-form h2, .contacts-info h2, .login-container h2, .cart-totals h2, .delivery-form h2, .product-reviews-block form h2, .admin-form h2, .additionalinfo-form h2{
 	font-family: RalewayBold, Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
-.contact-form label, .login-container label, .delivery-form label, .product-desc form label, .product-reviews-block form label, .product-add-form label, .staff-add-form label, .order-change-form label, .warehouse-product-form label, .warehouse-add-form label, .manufacturer-form label, .additionalinfo-form label{
+.contact-form label, .login-container label, .delivery-form label, .product-desc form label, .product-reviews-block form label, .admin-form label, .additionalinfo-form label{
 	margin-top: 15px;
 }
 
@@ -1309,12 +1309,7 @@ td.table-nodata{
 .delivery-form input, .delivery-form select, 
 .product-desc form input, 
 .product-reviews-block form textarea, 
-.product-add-form input, .product-add-form textarea, .product-add-form select, 
-.staff-add-form input, .staff-add-form select, 
-.order-change-form input, .order-change-form select, 
-.warehouse-product-form input, .warehouse-product-form select, 
-.warehouse-add-form input, .warehouse-add-form select, 
-.manufacturer-form input, .manufacturer-form select, .manufacturer-form textarea,
+.admin-form textarea, .admin-form input, .admin-form select,
 .additionalinfo-form input, .additionalinfo-form select{
     border-color: #e8e8e8;
     border-style: solid;
@@ -1330,7 +1325,7 @@ td.table-nodata{
     width: 50px;
 }
 
-.delivery-form select, .product-add-form select, .staff-add-form select, .order-change-form select, .warehouse-product-form select, .warehouse-add-form select, .manufacturer-form select, .additionalinfo-form select{
+.delivery-form select, .admin-form select, .additionalinfo-form select{
     width: calc(300px + 18px);
 }
 
@@ -1338,11 +1333,11 @@ td.table-nodata{
     margin-bottom: 30px;
 }
 
-.contact-form textarea, .login-container textarea, .product-reviews-block form textarea, .product-add-form textarea, .manufacturer-form textarea{
+.contact-form textarea, .login-container textarea, .product-reviews-block form textarea, .admin-form textarea{
 	height: 150px;
 }
 
-.contact-form input[type="submit"], .login-container input[type="submit"], .product-desc form input[type="submit"], .product-reviews-block button, .product-reviews-block form input[type="submit"], .product-add-form button, .staff-add-form button, .order-change-form button, .warehouse-product-form button, .warehouse-add-form button, .manufacturer-form button, .additionalinfo-form button{
+.contact-form input[type="submit"], .login-container input[type="submit"], .product-desc form input[type="submit"], .product-reviews-block button, .product-reviews-block form input[type="submit"], .admin-form button, .additionalinfo-form button{
     margin-top: 20px;
     border-color: #e5e5e5;
     border-radius: 5px;
@@ -1354,7 +1349,7 @@ td.table-nodata{
     color: black;
 }
 
-.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover, .product-desc form input[type="submit"]:hover, .product-reviews-block button:hover, .product-reviews-block input[type="submit"]:hover, .product-add-form button:hover, .staff-add-form button:hover, .order-change-form button:hover, .warehouse-product-form button:hover, .warehouse-add-form button:hover, .manufacturer-form button:hover, .additionalinfo-form button:hover{
+.contact-form input[type="submit"]:hover, .login-container input[type="submit"]:hover, .product-desc form input[type="submit"]:hover, .product-reviews-block button:hover, .product-reviews-block input[type="submit"]:hover, .admin-form button:hover, .additionalinfo-form button:hover{
     cursor: pointer;
     background-color: #408de4;
     color: white;

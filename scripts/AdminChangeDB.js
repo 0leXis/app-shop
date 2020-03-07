@@ -1,4 +1,4 @@
-$('form.additionalinfo-form, form.staff-add-form').submit(function(e){
+$('form.additionalinfo-form, form.admin-form').submit(function(e){
     e.preventDefault();
     let form_data = $(this).serializeArray();
     let run = true;
@@ -49,7 +49,7 @@ $('form.search-form').submit(function(e){
 	else
 		params[input.attr("name")] = input.val();
 	
-	let url = 'admin-pannel-additional-info.php?';
+	let url = document.location.pathname + '?';
 	for(let key in params){
 		if(key != "")
 			url += key + '=' + params[key] + '&';
@@ -60,7 +60,7 @@ $('form.search-form').submit(function(e){
 
 function setChangeInfo(target){
     let elements = new Array();
-    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.staff-add-form').find ('input[type="text"], input[type="email"], textearea, select')
+    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find ('input[type="text"], input[type="email"], textearea, select')
     .each(function() { elements.push(this);});
     let curr_td = 0;
     for(let elem of elements){
@@ -75,7 +75,7 @@ function setChangeInfo(target){
 
 function deleteInfo(target, id){
     if(confirm("Вы уверены? Вы собираетесь удалить строку с id = " + id)){
-        let delete_form = $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.staff-add-form').find('input[type="hidden"]').val();
+        let delete_form = $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find('input[type="hidden"]').val();
         $.post('modules/admin_db.php', { delete_form : delete_form, id : id }).done(function(data) {
             if(data == 'REFRESH'){
                 document.location.reload();

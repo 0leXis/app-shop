@@ -9,7 +9,7 @@
             </div>
             <p class="error-str"></p>
             <div class="header-search">
-                <form name="search" method="GET" action="#">
+                <form class="search-form" method="GET">
                         <h2>Поиск</h2>
                         <?php
                             if(isset($_GET['search_staff_string'])){
@@ -51,7 +51,7 @@
 					}
                 ?>
             </table>
-            <form class="staff-add-form" method="POST">
+            <form class="admin-form" method="POST">
                 <input type="hidden" name="form" value="staff_form"/>
                 <h2 class="big-txt">Добавить/Изменить сотрудника</h2>
                 <h2 class="big-txt">(при добавлении сотрудника необходимо обязательно указать пароль)</h2>
