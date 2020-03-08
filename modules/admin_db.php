@@ -110,6 +110,20 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'manufacturer_form':
+                    if($_POST['email'] == "")
+                        $_POST['email'] = null;
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(searchID('manufacturers', $_POST['id']))
+                            execProcedure('ChangeManufacturer', $_POST['id'], $_POST['name'], $_POST['desc'], $_POST['email'], $_POST['country']);
+                        else
+                            execProcedure('CreateManufacturer', $_POST['name'], $_POST['desc'], $_POST['email'], $_POST['country']);
+                    }
+                    else{
+                        execProcedure('CreateManufacturer', $_POST['name'], $_POST['desc'], $_POST['email'], $_POST['country']);
+                    }
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
@@ -155,6 +169,12 @@
                 case 'staff_form':
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         execProcedure('DeleteWorker', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'manufacturer_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteManufacturer', $_POST['id']);
                     }
                     echo 'REFRESH';
                     die();

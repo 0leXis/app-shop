@@ -22,7 +22,10 @@
                 $quary .= ',';
             }
             $first = false;
-            $quary .= '\'' . htmlentities(mysqli_real_escape_string($mysqli, $param)) . '\'';
+            if($param === null)
+                $quary .= 'null';
+            else
+                $quary .= '\'' . htmlentities(mysqli_real_escape_string($mysqli, $param)) . '\'';
         }
         $quary .= ")";
         $result = $mysqli->query($quary);

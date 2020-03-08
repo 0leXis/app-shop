@@ -10,19 +10,19 @@
             <p class="error-str"></p>
             <div class="header-search">
                 <form class="search-form" method="GET">
-                        <h2>Поиск</h2>
-                        <?php
-                            if(isset($_GET['search_staff_string'])){
-                        ?>
-                            <input type="text" name="search_staff_string" placeholder="Введите id или фамилию..." value="<?=$_GET['search_staff_string']?>"/>
-                        <?php
-                            }
-                            else{
-                        ?>
-                            <input type="text" name="search_staff_string" placeholder="Введите id или фамилию..."/>
-                        <?php
-                             }
-                        ?>
+                    <h2>Поиск</h2>
+                    <?php
+                        if(isset($_GET['search_staff_string'])){
+                    ?>
+                        <input type="text" name="search_staff_string" placeholder="Введите id или фамилию..." value="<?=$_GET['search_staff_string']?>"/>
+                    <?php
+                        }
+                        else{
+                    ?>
+                        <input type="text" name="search_staff_string" placeholder="Введите id или фамилию..."/>
+                    <?php
+                        }
+                    ?>
                     <button type="submit">
                         <img src="images/Search.png" />
                     </button>

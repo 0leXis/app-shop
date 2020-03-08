@@ -60,13 +60,15 @@ $('form.search-form').submit(function(e){
 
 function setChangeInfo(target){
     let elements = new Array();
-    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find ('input[type="text"], input[type="email"], textearea, select')
+    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find ('input[type="text"], input[type="email"], textarea, select')
     .each(function() { elements.push(this);});
     let curr_td = 0;
     for(let elem of elements){
         let td = target.parentNode.parentNode.getElementsByTagName("td")[curr_td];
-        if(td.dataset.id != undefined)
-            elem.value = td.dataset.id;
+        if(td.dataset.id != undefined){
+            if(td.dataset.id != 'null')
+                elem.value = td.dataset.id;
+        }
         else
             elem.value = td.innerText;
         curr_td++;
