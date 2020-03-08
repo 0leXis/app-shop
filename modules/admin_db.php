@@ -124,6 +124,20 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'supplier_form':
+                    if($_POST['email'] == "")
+                        $_POST['email'] = null;
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(searchID('suppliers', $_POST['id']))
+                            execProcedure('ChangeSupplier', $_POST['id'], $_POST['name'], $_POST['desc'], $_POST['email']);
+                        else
+                            execProcedure('CreateSupplier', $_POST['name'], $_POST['desc'], $_POST['email']);
+                    }
+                    else{
+                        execProcedure('CreateSupplier', $_POST['name'], $_POST['desc'], $_POST['email']);
+                    }
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
@@ -175,6 +189,12 @@
                 case 'manufacturer_form':
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         execProcedure('DeleteManufacturer', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'supplier_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteSupplier', $_POST['id']);
                     }
                     echo 'REFRESH';
                     die();

@@ -38,12 +38,12 @@
 					<th>Удалить</th>
 				</tr>
                 <?php
-					if(isset($_GET['search_staff_string'])){
-						if(!formTableRows('SELECT * FROM manufacturers WHERE id = \'' . $_GET['search_manufacturer_string'] . '\' or Name like \'%' . $_GET['search_manufacturer_string'] . '%\'', true, true, [], [2]))
+					if(isset($_GET['search_manufacturer_string'])){
+						if(!formTableRows('SELECT * FROM manufacturers WHERE id = \'' . $_GET['search_manufacturer_string'] . '\' or Name like \'%' . $_GET['search_manufacturer_string'] . '%\'', true, true, [ 4 => 'SELECT * FROM countries'], [2]))
 							showNoDataMessage(6);
 					}
 					else{
-						if(!formTableRows('SELECT * FROM manufacturers', true, true, [], [2]))
+						if(!formTableRows('SELECT * FROM manufacturers', true, true, [ 4 => 'SELECT * FROM countries' ], [2]))
 							showNoDataMessage(6);
 					}
                 ?>
@@ -57,7 +57,7 @@
                 <input type="text" required name="name"/>
                 <label>Описание<span class="required-field"></span></label>
                 <textarea name="desc" required></textarea>
-                <label>Email</span></label>
+                <label>Email</label>
                 <input type="email" name="email"/>
                 <label>Страна<span class="required-field"></span></label>
                 <select name="country" required>
