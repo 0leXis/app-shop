@@ -1,6 +1,7 @@
 $('form.additionalinfo-form, form.admin-form').submit(function(e){
     e.preventDefault();
     let form_data = $(this).serializeArray();
+    let real_data = new FormData(this);
     let run = true;
     for(let elem of form_data)
         if(elem.name == "id" && elem.value != "")
@@ -9,7 +10,8 @@ $('form.additionalinfo-form, form.admin-form').submit(function(e){
                 break;
             }
     if(run){
-        $.post('modules/admin_db.php', form_data).done(function(data) {
+        /*
+        $.post('modules/admin_db.php', real_data).done(function(data) {
             if(data == 'REFRESH'){
                 document.location.reload();
             }
@@ -22,13 +24,33 @@ $('form.additionalinfo-form, form.admin-form').submit(function(e){
                     $('p.error-str').html(data);
                 }
             }
+        });*/
+        $.ajax({
+            url: 'modules/admin_db.php',
+            data: real_data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function ( data ) {
+                if(data == 'REFRESH'){
+                    document.location.reload();
+                }
+                else{
+                    try{
+                        locate = JSON.parse(data);
+                        document.location = locate['location'];
+                    }
+                    catch{
+                        $('p.error-str').html(data);
+                    }
+                }
+            }
         });
     }
 });
 
 $('form.search-form').submit(function(e){
 	e.preventDefault();
-	let form_data = $(this).serializeArray();
 	let params = window
     .location
     .search
@@ -65,6 +87,8 @@ function setChangeInfo(target){
     let curr_td = 0;
     for(let elem of elements){
         let td = target.parentNode.parentNode.getElementsByTagName("td")[curr_td];
+        if($(td).find('.change-btn, .delete-cross-btn').length != 0)
+            break;
         if(td.dataset.id != undefined){
             if(td.dataset.id != 'null')
                 elem.value = td.dataset.id;
@@ -94,3 +118,33 @@ function deleteInfo(target, id){
         });
     }
 }
+
+$('.choosable tr').click(function(e){
+    e.preventDefault();
+	let params = window
+    .location
+    .search
+    .replace('?','')
+    .split('&')
+    .reduce(
+        function(p,e){
+            let a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+	if($(this).find('td')[0].innerText == ""){
+		delete params['choosed'];
+	}
+	else
+        params['choosed'] = $(this).find('td')[0].innerText;
+        
+	let url = document.location.pathname + '?';
+	for(let key in params){
+		if(key != "")
+			url += key + '=' + params[key] + '&';
+	}
+	url = url.slice(0, -1);
+	document.location = url;
+})

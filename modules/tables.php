@@ -1,6 +1,6 @@
 <?php
     //[ 'column' => 'join query' ]
-    function formTableRows($selectQuery, $addChangeBtn, $addDeleteBtn, $replaceJoinsCols = null, $hiddenRows = null){
+    function formTableRows($selectQuery, $addChangeBtn, $addDeleteBtn, $replaceJoinsCols = null, $hiddenRows = null, $isProduct = false){
         require('connection.php');
         $result = $mysqli->query($selectQuery);
         if ($mysqli->errno){
@@ -10,7 +10,16 @@
         while ($row = mysqli_fetch_row($result)) {
             $has_rows = true;
             echo '<tr>';
-            for($col = 0; $col < count($row); $col++){
+            if($isProduct){
+                echo '<td class="table-product">';
+                echo '<img src="' . $row[0] . '" alt="Product image"/>';
+                echo '<span>' . $row[1] . '</span>';
+                echo '</td>';
+                $col = 2;
+            }
+            else
+                $col = 0;
+            for( ; $col < count($row); $col++){
                 echo "<td";
                 if(!is_null($hiddenRows) && in_array($col, $hiddenRows))
                     echo ' style="display: none;"';
@@ -34,8 +43,12 @@
             }
             if($addChangeBtn)
                 echo '<td><div class="change-btn" onclick="setChangeInfo(this)">&#10001;</div></td>';
-            if($addDeleteBtn)
-                echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[0] . ')">&times;</div></td>';
+            if($addDeleteBtn){
+                if($isProduct)
+                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[2] . ')">&times;</div></td>';
+                else
+                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[0] . ')">&times;</div></td>';
+            }
             echo '</tr>';
         }
         mysqli_free_result($result);

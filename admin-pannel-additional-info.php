@@ -145,11 +145,11 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_type_string'])){
-								if(!formTableRows('SELECT * FROM appliancestypes WHERE id = \'' . $_GET['search_type_string'] . '\' or name like \'%' . $_GET['search_type_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM appliancestypes WHERE id = \'' . $_GET['search_type_string'] . '\' or name like \'%' . $_GET['search_type_string'] . '%\'', true, true, [ 2 =>'SELECT * FROM typecategories' ]))
 									showNoDataMessage(5);
 							}
 							else{
-								if(!formTableRows('SELECT * FROM appliancestypes', true, true))
+								if(!formTableRows('SELECT * FROM appliancestypes', true, true, [ 2 =>'SELECT * FROM typecategories' ]))
 									showNoDataMessage(5);
 							}
                         ?>
@@ -159,6 +159,8 @@
                         <h2 class="big-txt">Добавить/Изменить тип товара</h2>
                         <label>ID</label>
                         <input type="text" name="id"/>
+                        <label>Название<span class="required-field"></span></label>
+                        <input type="text" required name="name"/>
                         <label>Категория<span class="required-field"></span></label>
                         <select required name="category">
                         <?php
@@ -173,8 +175,6 @@
                             mysqli_free_result($result);
                         ?>
                         </select>
-                        <label>Название<span class="required-field"></span></label>
-                        <input type="text" required name="name"/>
                         <button>
                             Редактировать
                         </button>

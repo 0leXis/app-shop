@@ -882,9 +882,9 @@ footer .centered-container.bottom-container{
     padding: 5px 0;
 }
 
-.orders-table tr:not(:first-child):hover{
+.choosable tr:hover{
     cursor: pointer;
-    background-color: #e8e8e8;
+    background-color: #e6e6e6;
 }
 
 .products-table td, .orders-table td, .staff-table td, .supplies-table td, .warehouses-table td, .manufacturers-table td, .additionalinfo-table td, .log-table td{

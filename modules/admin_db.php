@@ -1,4 +1,6 @@
 <?php
+    define('PRODUCT_IMAGES_DIR', '..\images\products');
+    define('USER_PRODUCT_IMAGES_DIR', '\images\products');
     //TODO: валидация на клиенте и сервере
     require_once("error_pages.php");
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -138,6 +140,66 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'product_form':
+                    if($_POST['discount_price'] == "")
+                        $_POST['discount_price'] = null;
+                    if(!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name']))
+                        $_POST['image'] = null;
+                    else{
+                        if($_FILES['image']['size'] > 10485760){
+                            echo 'Слишком большой размер файла!';
+                            die();
+                        }
+                        if(exif_imagetype($_FILES['image']['tmp_name']) == false){
+                            echo 'Недопустимый тип файла!';
+                            die();
+                        }
+                        $files = scandir(PRODUCT_IMAGES_DIR);
+                        $file_no = 0;
+                        while(in_array($file_no . '.img', $files))
+                            $file_no++;
+                        $_POST['image'] = USER_PRODUCT_IMAGES_DIR . '/' . $file_no . '.img';
+                    }
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(searchID('appliances', $_POST['id']))
+                            execProcedure('ChangeProduct', $_POST['id'], $_POST['name'], $_POST['description'], $_POST['manufacturer'], $_POST['type'], $_POST['price'], $_POST['discount_price'], $_POST['image']);
+                        else{
+                            if($_POST['image'] == null){
+                                echo 'Для добавления продукта необходимо прикрепить изображение!';
+                                die();
+                            }
+                            execProcedure('CreateProduct', $_POST['id'], $_POST['name'], $_POST['description'], $_POST['manufacturer'], $_POST['type'], $_POST['price'], $_POST['discount_price'], $_POST['image']);
+                        }
+                    }
+                    else{
+                        if($_POST['image'] == null){
+                            echo 'Для добавления продукта необходимо прикрепить изображение!';
+                            die();
+                        }
+                        execProcedure('CreateProduct', $_POST['id'], $_POST['name'], $_POST['description'], $_POST['manufacturer'], $_POST['type'], $_POST['price'], $_POST['discount_price'], $_POST['image']);
+                    }
+                    if(!move_uploaded_file($_FILES['image']['tmp_name'], PRODUCT_IMAGES_DIR . '/' . $file_no . '.img')){
+                        echo 'Не удалось переместить файл!';
+                        die();
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'warehouse_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(searchID('warehouses', $_POST['id']))
+                            execProcedure('ChangeWarehouse', $_POST['id'], $_POST['address'], $_POST['manager']);
+                        else
+                            execProcedure('CreateWarehouse', $_POST['id'], $_POST['address'], $_POST['manager']);
+                    }
+                    else{
+                        execProcedure('CreateWarehouse', $_POST['id'], $_POST['address'], $_POST['manager']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'warehouse_product_form':
+                    execProcedure('ChangeWarehouseProduct', $_POST['id'], $_POST['warehouse'], $_POST['count']);
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
@@ -198,12 +260,28 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'product_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        $row = searchID('appliances', $_POST['id']);
+                        if($row != null)
+                            unlink('..' . $row[8]);
+                        execProcedure('DeleteProduct', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'warehouse_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteWarehouse', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
         }   
-        else
+        else{
             error400(true);
+        }
     }
 	else
 		error400(true);
