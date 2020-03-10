@@ -1597,3 +1597,16 @@ footer.admin-pannel-footer{
     margin: 10px 10px;
     min-width: 500px;
 }
+
+.confirm-msg{
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-msg h2{
+    color: green;
+    font-family: RalewayBold, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}

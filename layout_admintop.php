@@ -28,7 +28,7 @@
                         echo "<span>" . $_SESSION['user_email'] . "</span>";
                         echo "<span>|</span>";
                         if($_SESSION['user_isadmin']){
-                            echo '<a href="admin-pannel.php">Панель администратора</a>';
+                            echo '<a href="index.php">Главная</a>';
                         }
                         else{
                             echo '<a href="orders.php">Мои заказы</a>';

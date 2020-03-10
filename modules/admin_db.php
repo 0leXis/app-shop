@@ -297,6 +297,12 @@
                     }
                     echo 'REFRESH';
                     die();
+                case 'message_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteMessage', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
