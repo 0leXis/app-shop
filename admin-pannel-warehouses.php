@@ -1,4 +1,3 @@
-
 <?php
     $TITLE = "Главная";
     include("layout_admintop.php");
@@ -107,7 +106,7 @@
 				</tr>
                 <?php
                     if(isset($_GET['choosed'])){
-                        if(!formTableRows('SELECT a.image, a.name, a.id, wa.count FROM appliances as a, warehousesappliances as wa WHERE a.id = wa.product and wa.id = \'' . $_GET['choosed'] . '\'', false, false, [], [], true))
+                        if(!formTableRows('SELECT a.image, a.name, a.id, wa.count FROM appliances as a, warehousesappliances as wa WHERE a.id = wa.product and wa.warehouse = \'' . $_GET['choosed'] . '\'', false, false, [], [], true))
                             showNoDataMessage(3);   
                     }
                     else

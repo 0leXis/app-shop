@@ -82,7 +82,7 @@ $('form.search-form').submit(function(e){
 
 function setChangeInfo(target){
     let elements = new Array();
-    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find ('input[type="text"], input[type="email"], textarea, select')
+    $(target.parentNode.parentNode.parentNode.parentNode.parentNode).find('form.additionalinfo-form, form.admin-form').find ('input[type="text"], input[type="email"], input[type="date"], textarea, select')
     .each(function() { elements.push(this);});
     let curr_td = 0;
     for(let elem of elements){
@@ -120,7 +120,6 @@ function deleteInfo(target, id){
 }
 
 $('.choosable tr').click(function(e){
-    e.preventDefault();
 	let params = window
     .location
     .search
@@ -134,6 +133,8 @@ $('.choosable tr').click(function(e){
         },
         {}
     );
+    if($(this).find('td').length == 1)
+        return;
 	if($(this).find('td')[0].innerText == ""){
 		delete params['choosed'];
 	}

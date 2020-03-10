@@ -42,12 +42,12 @@
                 echo "</td>";
             }
             if($addChangeBtn)
-                echo '<td><div class="change-btn" onclick="setChangeInfo(this)">&#10001;</div></td>';
+                echo '<td><div class="change-btn" onclick="setChangeInfo(this); event.stopPropagation()">&#10001;</div></td>';
             if($addDeleteBtn){
                 if($isProduct)
-                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[2] . ')">&times;</div></td>';
+                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[2] . '); event.stopPropagation()">&times;</div></td>';
                 else
-                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[0] . ')">&times;</div></td>';
+                    echo '<td><div class="delete-cross-btn" onclick="deleteInfo(this, ' . $row[0] . '); event.stopPropagation()">&times;</div></td>';
             }
             echo '</tr>';
         }

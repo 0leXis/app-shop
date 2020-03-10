@@ -200,6 +200,22 @@
                     execProcedure('ChangeWarehouseProduct', $_POST['id'], $_POST['warehouse'], $_POST['count']);
                     echo 'REFRESH';
                     die();
+                case 'supply_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(searchID('supplies', $_POST['id']))
+                            execProcedure('ChangeSupply', $_POST['id'], $_POST['date'], $_POST['warehouse'], $_POST['supplier']);
+                        else
+                            execProcedure('CreateSupply', $_POST['date'], $_POST['warehouse'], $_POST['supplier']);
+                    }
+                    else{
+                        execProcedure('CreateSupply', $_POST['date'], $_POST['warehouse'], $_POST['supplier']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'supply_product_form':
+                    execProcedure('ChangeSupplyProduct', $_POST['id'], $_POST['supply'], $_POST['count']);
+                    echo 'REFRESH';
+                    die();
                 default:
                     error400(true);
             }
@@ -272,6 +288,12 @@
                 case 'warehouse_form':
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         execProcedure('DeleteWarehouse', $_POST['id']);
+                    }
+                    echo 'REFRESH';
+                    die();
+                case 'supply_form':
+                    if(isset($_POST['id']) && $_POST['id'] != ""){
+                        execProcedure('DeleteSupply', $_POST['id']);
                     }
                     echo 'REFRESH';
                     die();
