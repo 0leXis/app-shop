@@ -1052,7 +1052,7 @@ td.table-nodata{
     margin-bottom: 80px;
 }
 
-.shop-pagesbuttons a, .team-info a, .cart-totals button{
+.shop-pagesbuttons button, .team-info a, .cart-totals button{
     border-color: #e5e5e5;
     border-radius: 5px;
     border-style: solid;
@@ -1067,7 +1067,7 @@ td.table-nodata{
     border-radius: 5px;
 }
 
-.shop-pagesbuttons span, .shop-pagesbuttons a, .team-info a, .cart-totals button{
+.shop-pagesbuttons span, .shop-pagesbuttons button, .team-info a, .cart-totals button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1080,7 +1080,13 @@ td.table-nodata{
     font-size: 14px;
 }
 
-.shop-pagesbuttons a:hover, .team-info a:hover, .cart-totals button:hover{
+.shop-pagesbuttons button{
+    outline: none;
+    min-height: 30px;
+    min-width: 30px;
+}
+
+.shop-pagesbuttons button:hover, .team-info a:hover, .cart-totals button:hover{
     background-color: #408de4;
     color: white;
 }

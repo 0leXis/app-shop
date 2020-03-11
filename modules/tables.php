@@ -58,4 +58,50 @@
     function showNoDataMessage($cols){
         echo '<tr><td class="table-nodata" colspan="' . $cols . '">Нет данных</td></tr>';
     }
+
+    function formPagesButtons($rows_count, $row_per_page, $current_page = 1){
+        $pages = intdiv($rows_count, $row_per_page);
+        if($rows_count % $row_per_page != 0)
+            $pages++;
+        if($current_page < 0 || $current_page > $pages)
+            return null;
+
+        echo '<div class="shop-pagesbuttons">';
+        $mid_str = "";
+        $max_page = 0;
+        $min_page = 0;
+        for($mid_page = $current_page - 2; $mid_page < $current_page + 3; $mid_page++){
+            if($mid_page < 1)
+                continue;
+            if($mid_page > $pages)
+                break;
+            if($mid_page == $current_page){
+                $mid_str.= "<span>$mid_page</span>";
+            }
+            else{
+                $mid_str.= '<button name="next_page">' . $mid_page . '</button>';
+            }
+            if($min_page == 0)
+                $min_page = $mid_page;
+            $max_page = $mid_page;
+        }
+        if($min_page > 2){
+            echo '<button name="next_page">1</button>';
+            echo '<span class="dots">...</span>';
+        }
+        else{
+            for($page = 1; $page < $min_page; $page++)
+                echo '<button name="next_page">' . $page . '</button>';
+        }
+        echo $mid_str;
+        if($max_page < $pages - 2){
+            echo '<span class="dots">...</span>';
+            echo '<button name="next_page">' . $pages . '</button>';
+        }
+        else{
+            for($page = $max_page + 1; $page < $pages + 1; $page++)
+                echo '<button name="next_page">' . $page . '</button>';
+        }
+        echo '</div>';
+    }
 ?>

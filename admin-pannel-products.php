@@ -40,16 +40,25 @@
 					<th>Удалить</th>
 				</tr>
                 <?php
+                    if(!isset($_GET['page']))
+                        $_GET['page'] = 1;
 					if(isset($_GET['search_product_string'])){
-						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances WHERE id = \'' . $_GET['search_product_string'] . '\' or Name like \'%' . $_GET['search_product_string'] . '%\'', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
+						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances WHERE id = \'' . $_GET['search_product_string'] . '\' or Name like \'%' . $_GET['search_product_string'] . '%\' limit ' . (10 * ($_GET['page'] - 1)) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
 							showNoDataMessage(8);
 					}
 					else{
-						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
+						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances limit ' . (10 * ($_GET['page'] - 1)) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
 							showNoDataMessage(8);
 					}
                 ?>
             </table>
+            <?php
+                require_once("modules/DB_utils.php");
+                if(isset($_GET['page']))
+                    formPagesButtons(getRowsCount('appliances'), 10, $_GET['page']);
+                else
+                    formPagesButtons(getRowsCount('appliances'), 10);
+            ?>
             <form enctype="multipart/form-data" class="admin-form" method="POST">
                 <input type="hidden" name="form" value="product_form"/>
                 <h2 class="big-txt">Добавить/Изменить товар</h2>
@@ -105,5 +114,6 @@
         include("layout_footer.php");
     ?>
     <script src="scripts/AdminChangeDB.js"></script>
+    <script src="scripts/PageControl.js"></script>
 </body>
 </html>

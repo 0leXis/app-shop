@@ -70,7 +70,8 @@ $('form.search-form').submit(function(e){
 	}
 	else
 		params[input.attr("name")] = input.val();
-	
+    if(params['page'] != undefined)
+        params['page'] = 1;
 	let url = document.location.pathname + '?';
 	for(let key in params){
 		if(key != "")

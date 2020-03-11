@@ -12,6 +12,20 @@
         mysqli_free_result($result);
         return null;
     }
+
+    function getRowsCount($table){
+        require('connection.php');
+        $result = $mysqli->query("SELECT COUNT(*) FROM $table");
+        if ($mysqli->errno){
+            die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
+        }
+        if ($row = mysqli_fetch_row($result)){
+            mysqli_free_result($result);
+            return $row[0];
+        }
+        mysqli_free_result($result);
+        return null;
+    }
     
     function execProcedure($procedureName, ...$params){
         require('connection.php');
