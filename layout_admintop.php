@@ -66,7 +66,6 @@
                     <li><a href="admin-pannel-manufacturers.php">Производители</a></li>
                     <li><a href="admin-pannel-additional-info.php">Редактирование дополнительной информации</a></li>
                     <li><a href="admin-pannel-messages.php">Сообщения</a></li>
-                    <li><a href="admin-pannel-log.php">Просмотр Log</a></li>
                 </ul>
             </nav>
         </aside>
