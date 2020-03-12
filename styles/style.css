@@ -563,6 +563,7 @@ span.slider-dot {
 }
 
 .product-name{
+    text-align: center;
     font-family: RobotoRegular, Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #444444;
@@ -574,6 +575,17 @@ span.slider-dot {
     font-size: 14px;
     color: black;
     margin: 3px 0;
+}
+
+.product-price.old{
+    text-decoration: line-through;
+    color: #838383;
+}
+
+.product-stars{
+    font-family: RobotoMedium, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black;
 }
 
 .product-stars, .product-stars-choose{
@@ -596,7 +608,8 @@ span.slider-dot {
 }
 
 .products-block-product img{
-    width: 100%;
+    max-width: 100%;
+    max-height: 114px;
 }
 
 .shop-items-list .products-block-product{
