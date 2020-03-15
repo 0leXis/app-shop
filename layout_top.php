@@ -44,11 +44,22 @@
                 </div>
                 <div class="header-search-and-cart">
                     <div class="header-search">
-                        <form name="search" method="GET" action="#">
-                            <input type="text" name="search_string" placeholder="Искать..." />
+                        <form name="search" method="GET" action="shop.php">
+                            <input type="text" name="search_string" placeholder="Искать..." <?= isset($_GET['search_string']) ? 'value="' . $_GET['search_string'] . '"' : '';?>/>
                             <select name="category">
-                                <option>Все категории</option>
-                                <option>Стиральные машины</option>
+                            <?php
+                                require("modules/connection.php");
+                                $result = $mysqli->query("SELECT id, name FROM appliancestypes order by name");
+
+                                echo '<option value="">Все категории</option>';
+                                while($row = mysqli_fetch_array($result)){
+                                    if(isset($_GET['category']) && $_GET['category'] == $row['id'])
+                                        echo '<option value="' . $row['id'] . '" selected>' . $row['name'] . '</option>';
+                                    else
+                                        echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                                }
+                                mysqli_free_result($result);
+                            ?>
                             </select>
                             <button type="submit">
                                 <img src="images/Search.png" />
@@ -56,13 +67,27 @@
                         </form>
                     </div>
                     <div class="header-cart">
-                        <button>
-                            <img src="images/Cart.png" />
-                        </button>
+                        <form action="cart.php">
+                            <button href="cart.php">
+                                <img src="images/Cart.png" />
+                            </button>
+                        </form>
                         <div class="header-cart-sum">
-                            <span>0 Товаров:</span>
+                            <?php
+                                $row = null;
+                                if(isset($_SESSION['user_id']) && !$_SESSION['user_isadmin']){
+                                    require_once("modules/connection.php");
+                                    $result = $mysqli->query('SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count) as total, SUM(c.count) as count FROM appliances as a, carts as c WHERE c.product = a.id and c.customer = ' . $_SESSION['user_id']);
+                                    if ($mysqli->errno){
+                                        die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
+                                    }
+                                    $row = mysqli_fetch_array($result);
+                                    mysqli_free_result($result);
+                                }
+                            ?>
+                            <span><?= is_null($row) ? 0 : $row['count']?> товаров:</span>
                             <pre> </pre>
-                            <span class="blue-text">$0.00</span>
+                            <span class="blue-text">$<?= is_null($row) ? 0 : $row['total']?></span>
                         </div>
                     </div>
                 </div>
@@ -73,9 +98,9 @@
                 <nav>
                     <ul>
                         <li class="selected-menu-item"><a href="#" class="big-txt black-txt">Главная</a></li>
-                        <li><a href="#" class="big-txt white-txt">Магазин</a></li>
-                        <li><a href="#" class="big-txt white-txt">Наши контакты</a></li>
-                        <li><a href="#" class="big-txt white-txt">О нас</a></li>
+                        <li><a href="shop.php" class="big-txt white-txt">Магазин</a></li>
+                        <li><a href="contact-us.php" class="big-txt white-txt">Наши контакты</a></li>
+                        <li><a href="about-us.html" class="big-txt white-txt">О нас</a></li>
                     </ul>
                 </nav>
                 <div class="header-contactus">

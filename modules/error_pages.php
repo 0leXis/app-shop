@@ -24,4 +24,12 @@
             header("Location: " . HTTP_METHOD . $_SERVER['HTTP_HOST'] . "/ErrorPages/403.html");
         die();
     }
+
+    function error404($ajax = false){
+        if($ajax)
+            echo json_encode(array("location" => HTTP_METHOD . $_SERVER['HTTP_HOST'] . "/ErrorPages/404.html"));
+        else
+            header("Location: " . HTTP_METHOD . $_SERVER['HTTP_HOST'] . "/ErrorPages/404.html");
+        die();
+    }
 ?>

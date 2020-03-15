@@ -5,6 +5,8 @@
         die();
     }
 
+    require_once("modules/error_pages.php");
+
     function login(){
         if(isset($_POST['email']) && isset($_POST['password'])){
             require_once('modules/hash.php');
@@ -34,7 +36,27 @@
     }
 
     function registration(){
-        //TODO: Registration
+        if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['re_password']) && isset($_POST['user_name']) && isset($_POST['user_surname']) && isset($_POST['user_lastname'])){
+            require_once('modules/hash.php');
+            require_once('modules/DB_utils.php');
+            if($_POST['password'] != $_POST['re_password'])
+                return("Пароли не совпадают");
+            require('modules/connection.php');
+            $result = $mysqli->query("SELECT id FROM customers WHERE email = '" . $_POST['email'] . "' UNION SELECT id FROM workers WHERE email = '" . $_POST['email'] . "'");
+            if ($mysqli->errno){
+                die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
+            }
+            if(mysqli_fetch_array($result))
+                return("Пользователя с таким Email не существует");
+            $hash = getHash($_POST['password']);
+            execProcedure('AddCustomer', $_POST['user_name'], $_POST['user_surname'], $_POST['user_lastname'], $_POST['email'], $hash['hash'], $hash['salt']);
+            header('Location: ..\registration-confirm.php');
+            mysqli_free_result($result);
+            die();
+        }
+        else{
+            error400();
+        }
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){

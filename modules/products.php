@@ -1,9 +1,46 @@
 <?php
+	function formShopProduct($product_id, $product_img, $product_name, $product_price, $product_new_price, $product_stars, $product_desc){
+		echo '<div class="products-block-product">';
+		echo '<div class="product-container">';
+		$product_url = "product.php?id=$product_id";
+		echo '<a href="' . $product_url . '"><img src="' . $product_img . '" alt="Product" /></a>';
+		echo '<div class="product-innerinfo">';
+		echo '<a href="' . $product_url . '" class="product-name">' . $product_name . '</a>';
+		if(is_null($product_new_price)){
+			echo '<span class="product-price">$' . $product_price . '</span>';
+		}
+		else{
+			echo '<span class="product-price old">$' . $product_price . '</span>';
+			echo '<span class="product-price">$' . $product_new_price . '</span>';
+		}
+		if(is_null($product_stars)){
+			echo '<span class="product-stars">Нет отзывов</span>';
+		}
+		else{
+			echo '<ul class="product-stars">';
+			for($star = 0; $star < 5; $star++)
+				if($star < $product_stars)
+					echo '<li class="yellow-star"></li>';
+				else
+					echo '<li class="dark-star"></li>';
+			echo '</ul>';
+		}
+		echo '<div class="product-shortdesc">';
+		echo $product_desc;
+		echo '</div>';
+		echo '<button name="to_cart" data-id="' . $product_id . '">В корзину</button>';
+		echo '</div>';
+		echo '</div>';
+		echo '<button name="to_cart" data-id="' . $product_id . '">В корзину</button>';
+		echo '</div>';
+	}
+
 	function formProduct($product_id, $product_img, $product_name, $product_price, $product_new_price, $product_stars){
 		echo '<div class="products-block-product">';
-		echo '<div class="product-container" onclick="window.location = \'product.php?id=' . $product_id . '\'">';
-		echo '<img src="' . $product_img . '" alt="TV" />';
-		echo '<span class="product-name">' . $product_name . '</span>';
+		echo '<div class="product-container">';
+		$product_url = "product.php?id=$product_id";
+		echo '<a href="' . $product_url . '"><img src="' . $product_img . '" alt="Product" /></a>';
+		echo '<a href="' . $product_url . '" class="product-name">' . $product_name . '</a>';
 		if(is_null($product_new_price)){
 			echo '<span class="product-price">$' . $product_price . '</span>';
 		}
@@ -62,7 +99,7 @@
 		echo '</div>';
 		echo '<ul class="products-sidebar-categories">';
 		$first_type_id = 0;
-		$result = $mysqli->query("SELECT id, name FROM appliancestypes where typecategory = $category_id");
+		$result = $mysqli->query("SELECT id, name FROM appliancestypes where typecategory = $category_id order by name");
 		while($row = mysqli_fetch_array($result)){
 			if($first_type_id == 0)
 				$first_type_id = $row['id'];
