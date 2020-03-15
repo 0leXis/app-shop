@@ -23,14 +23,14 @@
                 </tr>
                 <?php
                     require_once("modules/tables.php");
-                    if(!formTableRows('SELECT CONCAT(\'Заказ №\', id), status FROM orders WHERE customer = ' . $_SESSION['user_id'], false, false, [ 1 => 'SELECT id, name FROM orderstatuses']))
+                    if(!formTableRows("SELECT CONCAT('Заказ №', id), status FROM orders WHERE customer = '" . htmlentities(mysqli_real_escape_string($mysqli, $_SESSION['user_id'])) . "'", false, false, [ 1 => 'SELECT id, name FROM orderstatuses']))
                         showNoDataMessage(2);
                 ?>
             </table>
             <?php
                 if(isset($_GET['choosed'])){
                     require('modules/connection.php');
-                    $result = $mysqli->query("SELECT id, phone, (SELECT name FROM countries as c WHERE c.id = orders.deliverycountry) as deliverycountry, deliverycity, deliveryaddress, postcode, (SELECT name FROM paymentmethods as p WHERE p.id = orders.paymentmethod) as paymentmethod, cardnumber, (SELECT name FROM orderstatuses as os WHERE os.id = orders.status) as status FROM orders WHERE id = " . $_GET['choosed']);
+                    $result = $mysqli->query("SELECT id, phone, (SELECT name FROM countries as c WHERE c.id = orders.deliverycountry) as deliverycountry, deliverycity, deliveryaddress, postcode, (SELECT name FROM paymentmethods as p WHERE p.id = orders.paymentmethod) as paymentmethod, cardnumber, (SELECT name FROM orderstatuses as os WHERE os.id = orders.status) as status FROM orders WHERE id = '" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . "'");
                     if ($mysqli->errno){
                         die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
                     }
@@ -88,7 +88,7 @@
                     </div>
                     <?php
                         require_once("modules/connection.php");
-                        $result = $mysqli->query('SELECT a.name, IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count as price FROM appliances as a, ordersappliances as c WHERE c.product = a.id and c.order = ' . $_GET['choosed']);
+                        $result = $mysqli->query("SELECT a.name, IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count as price FROM appliances as a, ordersappliances as c WHERE c.product = a.id and c.order = '" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . "'");
                         if ($mysqli->errno){
                             die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
                         }
@@ -100,7 +100,7 @@
                         }
                         mysqli_free_result($result);
 
-                        $result = $mysqli->query('SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count) as total FROM appliances as a, ordersappliances as c WHERE c.product = a.id and c.order = ' . $_GET['choosed']);
+                        $result = $mysqli->query("SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count) as total FROM appliances as a, ordersappliances as c WHERE c.product = a.id and c.order = '" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . "'");
                         if ($mysqli->errno){
                             die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
                         }

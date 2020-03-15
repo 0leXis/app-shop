@@ -1,6 +1,7 @@
 <?php
     if(!isset($_SESSION))
         session_start();
+    require_once("modules\connection.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,6 @@
                             <input type="text" name="search_string" placeholder="Искать..." <?= isset($_GET['search_string']) ? 'value="' . $_GET['search_string'] . '"' : '';?>/>
                             <select name="category">
                             <?php
-                                require("modules/connection.php");
                                 $result = $mysqli->query("SELECT id, name FROM appliancestypes order by name");
 
                                 echo '<option value="">Все категории</option>';
@@ -76,7 +76,6 @@
                             <?php
                                 $row = null;
                                 if(isset($_SESSION['user_id']) && !$_SESSION['user_isadmin']){
-                                    require_once("modules/connection.php");
                                     $result = $mysqli->query('SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * c.count) as total, SUM(c.count) as count FROM appliances as a, carts as c WHERE c.product = a.id and c.customer = ' . $_SESSION['user_id']);
                                     if ($mysqli->errno){
                                         die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);

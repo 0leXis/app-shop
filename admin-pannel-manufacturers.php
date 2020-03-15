@@ -39,7 +39,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_manufacturer_string'])){
-						if(!formTableRows('SELECT * FROM manufacturers WHERE id = \'' . $_GET['search_manufacturer_string'] . '\' or Name like \'%' . $_GET['search_manufacturer_string'] . '%\'', true, true, [ 4 => 'SELECT * FROM countries'], [2]))
+						if(!formTableRows('SELECT * FROM manufacturers WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_manufacturer_string'])) . '\' or Name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_manufacturer_string'])) . '%\'', true, true, [ 4 => 'SELECT * FROM countries'], [2]))
 							showNoDataMessage(6);
 					}
 					else{

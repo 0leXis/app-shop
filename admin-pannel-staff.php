@@ -42,7 +42,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_staff_string'])){
-						if(!formTableRows('SELECT id, Name, Surname, Lastname, Position, Salary, Email FROM workers WHERE id = \'' . $_GET['search_staff_string'] . '\' or Surname like \'%' . $_GET['search_staff_string'] . '%\'', true, true, [ 4 => 'SELECT * FROM positions']))
+						if(!formTableRows('SELECT id, Name, Surname, Lastname, Position, Salary, Email FROM workers WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_staff_string'])) . '\' or Surname like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_staff_string'])) . '%\'', true, true, [ 4 => 'SELECT * FROM positions']))
 							showNoDataMessage(9);
 					}
 					else{

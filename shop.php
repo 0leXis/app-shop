@@ -100,33 +100,33 @@
                         $is_where_added = false;
                         if(isset($_GET['search_string']) && $_GET['search_string'] != ''){
                             if($is_where_added)
-                                $query .= ' and name like \'%' . $_GET['search_string'] . '%\'';
+                                $query .= ' and name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_string'])) . '%\'';
                             else{
-                                $query .= ' WHERE name like \'%' . $_GET['search_string'] . '%\'';
+                                $query .= ' WHERE name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_string'])) . '%\'';
                                 $is_where_added = true;
                             }
                         }
                         if(isset($_GET['category']) && $_GET['category'] != ''){
                             if($is_where_added)
-                                $query .= ' and type = \'' . $_GET['category'] . '\'';
+                                $query .= ' and type = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['category'])) . '\'';
                             else{
-                                $query .= ' WHERE type = \'' . $_GET['category'] . '\'';
+                                $query .= ' WHERE type = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['category'])) . '\'';
                                 $is_where_added = true;
                             }
                         } 
                         if(isset($_GET['min_price']) && $_GET['min_price'] != ''){
                             if($is_where_added)
-                                $query .= ' and (cost >= \'' . $_GET['min_price'] . '\' or discount_cost >= \'' . $_GET['min_price'] . '\')';
+                                $query .= ' and (cost >= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['min_price'])) . '\' or discount_cost >= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['min_price'])) . '\')';
                             else{
-                                $query .= ' WHERE (cost >= \'' . $_GET['min_price'] . '\' or discount_cost >= \'' . $_GET['min_price'] . '\')';
+                                $query .= ' WHERE (cost >= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['min_price'])) . '\' or discount_cost >= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['min_price'])) . '\')';
                                 $is_where_added = true;
                             }
                         } 
                         if(isset($_GET['max_price']) && $_GET['max_price'] != ''){
                             if($is_where_added)
-                                $query .= ' and (cost <= \'' . $_GET['max_price'] . '\' or discount_cost <= \'' . $_GET['max_price'] . '\')';
+                                $query .= ' and (cost <= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['max_price'])) . '\' or discount_cost <= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['max_price'])) . '\')';
                             else{
-                                $query .= ' WHERE (cost <= \'' . $_GET['max_price'] . '\' or discount_cost <= \'' . $_GET['max_price'] . '\')';
+                                $query .= ' WHERE (cost <= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['max_price'])) . '\' or discount_cost <= \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['max_price'])) . '\')';
                                 $is_where_added = true;
                             }
                         }
@@ -138,7 +138,7 @@
                                 $is_where_added = true;
                             }
                             while(true){
-                                $query .= '\'' . array_shift($_GET['manufacturer']) . '\'';
+                                $query .= '\'' . htmlentities(mysqli_real_escape_string($mysqli, array_shift($_GET['manufacturer']))) . '\'';
                                 if(count($_GET['manufacturer']) > 0)
                                     $query .= ', ';
                                 else
@@ -169,14 +169,20 @@
                             $query .= ' ORDER BY id desc';
                         }
                         if(isset($_GET['item_count'])){
-                            if(isset($_GET['page']))
-                                $query .= ' limit ' . (($_GET['page'] - 1) * $_GET['item_count']) . ', ' . $_GET['item_count'];
+                            if(isset($_GET['page'])){
+                                if(!is_numeric($_GET['page']))
+                                    $_GET['page'] = 1;
+                                $query .= ' limit ' . htmlentities(mysqli_real_escape_string($mysqli, (($_GET['page'] - 1) * $_GET['item_count']))) . ', ' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['item_count']));
+                            }
                             else
-                                $query .= ' limit 0, ' . $_GET['item_count'];
+                                $query .= ' limit 0, ' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['item_count']));
                         }
                         else{
-                            if(isset($_GET['page']))
-                                $query .= ' limit ' . (($_GET['page'] - 1) * 12) . ', 12';
+                            if(isset($_GET['page'])){
+                                if(!is_numeric($_GET['page']))
+                                    $_GET['page'] = 1;
+                                $query .= ' limit ' . htmlentities(mysqli_real_escape_string($mysqli, (($_GET['page'] - 1) * 12))) . ', 12';
+                            }
                             else
                                 $query .= ' limit 0, 12';
                         }

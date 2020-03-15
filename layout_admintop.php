@@ -1,6 +1,6 @@
 <?php
     require_once('modules\error_pages.php');
-
+    require_once("modules\connection.php");
     if(!isset($_SESSION))
         session_start();
     if(!isset($_SESSION['user_isadmin']))

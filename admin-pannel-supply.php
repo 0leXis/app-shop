@@ -39,7 +39,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_supply_string'])){
-						if(!formTableRows('SELECT * FROM supplies WHERE id = \'' . $_GET['search_supply_string'] . '\' or date = \'' . $_GET['search_supply_string'] . '\'', true, true))
+						if(!formTableRows('SELECT * FROM supplies WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_supply_string'])) . '\' or date = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_supply_string'])) . '\'', true, true))
 							showNoDataMessage(7);
 					}
 					else{
@@ -121,7 +121,7 @@
 				</tr>
                 <?php
                     if(isset($_GET['choosed'])){
-                        if(!formTableRows('SELECT a.image, a.name, a.id, sa.count FROM appliances as a, suppliesappliances as sa WHERE a.id = sa.product and sa.supply = \'' . $_GET['choosed'] . '\'', false, false, [], [], true))
+                        if(!formTableRows('SELECT a.image, a.name, a.id, sa.count FROM appliances as a, suppliesappliances as sa WHERE a.id = sa.product and sa.supply = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . '\'', false, false, [], [], true))
                             showNoDataMessage(3);   
                     }
                     else

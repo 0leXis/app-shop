@@ -38,7 +38,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_warehouse_string'])){
-						if(!formTableRows('SELECT * FROM warehouses WHERE id = \'' . $_GET['search_warehouse_string'] . '\'', true, true, [ 2 => 'SELECT id, CONCAT(name, \' \', surname, \' \', lastname) FROM workers'], []))
+						if(!formTableRows('SELECT * FROM warehouses WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_warehouse_string'])) . '\'', true, true, [ 2 => 'SELECT id, CONCAT(name, \' \', surname, \' \', lastname) FROM workers'], []))
 							showNoDataMessage(5);
 					}
 					else{
@@ -106,7 +106,7 @@
 				</tr>
                 <?php
                     if(isset($_GET['choosed'])){
-                        if(!formTableRows('SELECT a.image, a.name, a.id, wa.count FROM appliances as a, warehousesappliances as wa WHERE a.id = wa.product and wa.warehouse = \'' . $_GET['choosed'] . '\'', false, false, [], [], true))
+                        if(!formTableRows('SELECT a.image, a.name, a.id, wa.count FROM appliances as a, warehousesappliances as wa WHERE a.id = wa.product and wa.warehouse = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . '\'', false, false, [], [], true))
                             showNoDataMessage(3);   
                     }
                     else

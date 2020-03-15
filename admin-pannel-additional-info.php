@@ -40,7 +40,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_country_string'])){
-								if(!formTableRows('SELECT * FROM countries WHERE id = \'' . $_GET['search_country_string'] . '\' or name like \'%' . $_GET['search_country_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM countries WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_country_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_country_string'])) . '%\'', true, true))
 									showNoDataMessage(4);
 							}
 							else{
@@ -92,7 +92,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_category_string'])){
-								if(!formTableRows('SELECT * FROM typecategories WHERE id = \'' . $_GET['search_category_string'] . '\' or name like \'%' . $_GET['search_category_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM typecategories WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_category_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_category_string'])) . '%\'', true, true))
 									showNoDataMessage(4);
 							}
 							else{
@@ -145,7 +145,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_type_string'])){
-								if(!formTableRows('SELECT * FROM appliancestypes WHERE id = \'' . $_GET['search_type_string'] . '\' or name like \'%' . $_GET['search_type_string'] . '%\'', true, true, [ 2 =>'SELECT * FROM typecategories' ]))
+								if(!formTableRows('SELECT * FROM appliancestypes WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_type_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_type_string'])) . '%\'', true, true, [ 2 =>'SELECT * FROM typecategories' ]))
 									showNoDataMessage(5);
 							}
 							else{
@@ -211,7 +211,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_role_string'])){
-								if(!formTableRows('SELECT * FROM positions WHERE id = \'' . $_GET['search_role_string'] . '\' or name like \'%' . $_GET['search_role_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM positions WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_role_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_role_string'])) . '%\'', true, true))
 									showNoDataMessage(4);
 							}
 							else{
@@ -263,7 +263,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_status_string'])){
-								if(!formTableRows('SELECT * FROM orderstatuses WHERE id = \'' . $_GET['search_status_string'] . '\' or name like \'%' . $_GET['search_status_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM orderstatuses WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_status_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_status_string'])) . '%\'', true, true))
 									showNoDataMessage(4);
 							}
 							else{
@@ -315,7 +315,7 @@
                         </tr>
                         <?php
 							if(isset($_GET['search_method_string'])){
-								if(!formTableRows('SELECT * FROM paymentmethods WHERE id = \'' . $_GET['search_method_string'] . '\' or name like \'%' . $_GET['search_method_string'] . '%\'', true, true))
+								if(!formTableRows('SELECT * FROM paymentmethods WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_method_string'])) . '\' or name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_method_string'])) . '%\'', true, true))
 									showNoDataMessage(4);
 							}
 							else{

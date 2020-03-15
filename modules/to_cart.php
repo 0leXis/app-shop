@@ -10,7 +10,7 @@
         if(isset($_POST["id"])){
             require("connection.php");
             require("DB_utils.php");
-            $result = $mysqli->query("SELECT id FROM carts WHERE product = '" . $_POST["id"] . "' and customer = '" . $_SESSION["user_id"] . "'");
+            $result = $mysqli->query("SELECT id FROM carts WHERE product = '" . htmlentities(mysqli_real_escape_string($mysqli, $_POST["id"])) . "' and customer = '" . $_SESSION["user_id"] . "'");
             if ($mysqli->errno){
                 die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
             }
@@ -20,7 +20,7 @@
             }
             mysqli_free_result($result);
 
-            $result = $mysqli->query("SELECT stockavailability FROM appliances WHERE id = '" . $_POST["id"] . "'");
+            $result = $mysqli->query("SELECT stockavailability FROM appliances WHERE id = '" . htmlentities(mysqli_real_escape_string($mysqli, $_POST["id"])) . "'");
             if ($mysqli->errno){
                 die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
             }

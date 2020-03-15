@@ -22,7 +22,7 @@
         error400();
     }
 
-    $result = $mysqli->query("SELECT a.id, a.image, a.name, a.cost, a.discount_cost, a.description, (SELECT ROUND(SUM(score) / COUNT(score)) FROM reviews WHERE product = a.id) as score, (SELECT COUNT(score) FROM reviews WHERE product = a.id) as score_count, (SELECT name FROM appliancestypes where id = a.type) as category, (SELECT name FROM manufacturers where id = a.manufacturer) as manufacturer, a.stockavailability, (SELECT SUM(count) FROM warehousesappliances WHERE product = a.id) as p_count FROM appliances as a WHERE id='" . $_GET['id'] . "'");
+    $result = $mysqli->query("SELECT a.id, a.image, a.name, a.cost, a.discount_cost, a.description, (SELECT ROUND(SUM(score) / COUNT(score)) FROM reviews WHERE product = a.id) as score, (SELECT COUNT(score) FROM reviews WHERE product = a.id) as score_count, (SELECT name FROM appliancestypes where id = a.type) as category, (SELECT name FROM manufacturers where id = a.manufacturer) as manufacturer, a.stockavailability, (SELECT SUM(count) FROM warehousesappliances WHERE product = a.id) as p_count FROM appliances as a WHERE id='" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['id'])) . "'");
     if ($mysqli->errno){
         die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
     }
@@ -111,7 +111,7 @@
                 <div class="product-reviews">
                     <h2>Отзывы покупателей</h2>
                     <?php
-                        $result = $mysqli->query("SELECT r.date, r.score, r.comment, c.name, c.surname FROM reviews as r left join customers as c on r.customer = c.id WHERE r.product='" . $_GET['id'] . "' ORDER BY date desc");
+                        $result = $mysqli->query("SELECT r.date, r.score, r.comment, c.name, c.surname FROM reviews as r left join customers as c on r.customer = c.id WHERE r.product='" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['id'])) . "' ORDER BY date desc");
                         if ($mysqli->errno){
                             die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
                         }
@@ -142,7 +142,7 @@
                 </div>
                 <?php
                     if(isset($_SESSION['user_id'])){
-                        $result = $mysqli->query("SELECT id FROM reviews WHERE customer='" . $_SESSION['user_id'] . "' and product='" . $_GET['id'] . "'");
+                        $result = $mysqli->query("SELECT id FROM reviews WHERE customer='" . htmlentities(mysqli_real_escape_string($mysqli, $_SESSION['user_id'])) . "' and product='" . htmlentities(mysqli_real_escape_string($mysqli, $_GET['id'])) . "'");
                         if ($mysqli->errno){
                             die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
                         }

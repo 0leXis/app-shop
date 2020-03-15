@@ -42,7 +42,7 @@
             if($_POST['password'] != $_POST['re_password'])
                 return("Пароли не совпадают");
             require('modules/connection.php');
-            $result = $mysqli->query("SELECT id FROM customers WHERE email = '" . $_POST['email'] . "' UNION SELECT id FROM workers WHERE email = '" . $_POST['email'] . "'");
+            $result = $mysqli->query("SELECT id FROM customers WHERE email = '" . htmlentities(mysqli_real_escape_string($mysqli, $_POST['email'])) . "' UNION SELECT id FROM workers WHERE email = '" . htmlentities(mysqli_real_escape_string($mysqli, $_POST['email'])) . "'");
             if ($mysqli->errno){
                 die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
             }

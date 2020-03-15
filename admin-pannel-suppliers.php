@@ -38,7 +38,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_supplier_string'])){
-						if(!formTableRows('SELECT * FROM suppliers WHERE id = \'' . $_GET['search_supplier_string'] . '\' or Name like \'%' . $_GET['search_supplier_string'] . '%\'', true, true, [], [2]))
+						if(!formTableRows('SELECT * FROM suppliers WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_supplier_string'])) . '\' or Name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_supplier_string'])) . '%\'', true, true, [], [2]))
 							showNoDataMessage(5);
 					}
 					else{

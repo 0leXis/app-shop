@@ -42,7 +42,7 @@
 				</tr>
                 <?php
 					if(isset($_GET['search_order_string'])){
-						if(!formTableRows('SELECT o.id, o.date, (SELECT c.email FROM customers as c WHERE o.customer = c.id) as customer, o.phone, CONCAT((SELECT co.name FROM countries as co WHERE co.id = o.deliverycountry), \', \', o.deliverycity, \', \', o.deliveryaddress) as address, o.postcode, (SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * oa.count) FROM ordersappliances as oa, appliances as a WHERE o.id = oa.order and oa.product = a.id) as price, (SELECT os.name FROM orderstatuses as os WHERE o.status = os.id) as status, o.manager FROM orders as o WHERE o.id = \'' . $_GET['search_product_string'] . '\'', false, false))
+						if(!formTableRows('SELECT o.id, o.date, (SELECT c.email FROM customers as c WHERE o.customer = c.id) as customer, o.phone, CONCAT((SELECT co.name FROM countries as co WHERE co.id = o.deliverycountry), \', \', o.deliverycity, \', \', o.deliveryaddress) as address, o.postcode, (SELECT SUM(IF(a.discount_cost IS NULL, a.cost, a.discount_cost) * oa.count) FROM ordersappliances as oa, appliances as a WHERE o.id = oa.order and oa.product = a.id) as price, (SELECT os.name FROM orderstatuses as os WHERE o.status = os.id) as status, o.manager FROM orders as o WHERE o.id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_product_string'])) . '\'', false, false))
 							showNoDataMessage(9);
 					}
 					else{
@@ -61,7 +61,7 @@
 				</tr>
 				<?php
                     if(isset($_GET['choosed'])){
-                        if(!formTableRows('SELECT a.image, a.name, a.id, IF(a.discount_cost IS NULL, a.cost, a.discount_cost) as cost, oa.count FROM appliances as a, ordersappliances as oa WHERE a.id = oa.product and oa.order = \'' . $_GET['choosed'] . '\'', false, false, [], [], true))
+                        if(!formTableRows('SELECT a.image, a.name, a.id, IF(a.discount_cost IS NULL, a.cost, a.discount_cost) as cost, oa.count FROM appliances as a, ordersappliances as oa WHERE a.id = oa.product and oa.order = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['choosed'])) . '\'', false, false, [], [], true))
                             showNoDataMessage(4);   
                     }
                     else

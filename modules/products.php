@@ -68,7 +68,7 @@
 	function formProductsForPBlock($type_id){
 		require("connection.php");
 		echo '<div class="products-block-products">';
-		$result = $mysqli->query("SELECT a.id, a.image, a.name, a.cost, a.discount_cost, (SELECT ROUND(SUM(score) / COUNT(score)) FROM reviews WHERE product = a.id) as score FROM appliances as a where a.type = $type_id order by a.id desc limit 0, 6");
+		$result = $mysqli->query("SELECT a.id, a.image, a.name, a.cost, a.discount_cost, (SELECT ROUND(SUM(score) / COUNT(score)) FROM reviews WHERE product = a.id) as score FROM appliances as a where a.type = '" . htmlentities(mysqli_real_escape_string($mysqli, $type_id)) . "' order by a.id desc limit 0, 6");
 		while($row = mysqli_fetch_array($result)){
 			formProduct($row['id'], $row['image'], $row['name'], $row['cost'], $row['discount_cost'], $row['score']);
 		}
@@ -85,7 +85,7 @@
 		echo '<img src="' . $category_img . '" alt="Category" />';
 
 		require('modules/connection.php');
-        $result = $mysqli->query("SELECT name FROM typecategories where id = $category_id");
+        $result = $mysqli->query("SELECT name FROM typecategories where id = '" . htmlentities(mysqli_real_escape_string($mysqli, $category_id)) . "'");
         if ($mysqli->errno){
             die('Select Error (' . $mysqli->errno . ') ' . $mysqli->error);
         }

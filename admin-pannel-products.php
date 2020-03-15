@@ -43,11 +43,11 @@
                     if(!isset($_GET['page']))
                         $_GET['page'] = 1;
 					if(isset($_GET['search_product_string'])){
-						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances WHERE id = \'' . $_GET['search_product_string'] . '\' or Name like \'%' . $_GET['search_product_string'] . '%\' limit ' . (10 * ($_GET['page'] - 1)) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
+						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances WHERE id = \'' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_product_string'])) . '\' or Name like \'%' . htmlentities(mysqli_real_escape_string($mysqli, $_GET['search_product_string'])) . '%\' limit ' . htmlentities(mysqli_real_escape_string($mysqli, (10 * ($_GET['page'] - 1)))) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
 							showNoDataMessage(8);
 					}
 					else{
-						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances limit ' . (10 * ($_GET['page'] - 1)) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
+						if(!formTableRows('SELECT image, name, id, description, cost, discount_cost, manufacturer, type FROM appliances limit ' . htmlentities(mysqli_real_escape_string($mysqli, (10 * ($_GET['page'] - 1)))) . ', 10', true, true, [ 6 => 'SELECT id, name FROM manufacturers', 7 => 'SELECT id, name FROM appliancestypes'], [3], true))
 							showNoDataMessage(8);
 					}
                 ?>
