@@ -76,6 +76,9 @@
                     mysqli_free_result($result);
                 }
             ?>
+            <?php
+                if(isset($_GET['choosed'])){
+            ?>
 			<div class="cart-totals">
 				<h2 class="big-txt">Ваш заказ</h2>
 				<div class="cart-totals-table">
@@ -118,6 +121,9 @@
 					</div>
                 </div>
             </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
     <?php

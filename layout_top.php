@@ -85,9 +85,9 @@
                                     mysqli_free_result($result);
                                 }
                             ?>
-                            <span><?= is_null($row['count']) ? 0 : $row['count']?> товаров:</span>
+                            <span><?= is_null($row) || is_null($row['count']) ? 0 : $row['count']?> товаров:</span>
                             <pre> </pre>
-                            <span class="blue-text">$<?= is_null($row['total']) ? 0 : $row['total']?></span>
+                            <span class="blue-text">$<?= is_null($row) || is_null($row['total']) ? 0 : $row['total']?></span>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ $('form.additionalinfo-form, form.admin-form').submit(function(e){
     let run = true;
     for(let elem of form_data)
         if(elem.name == "id" && elem.value != "")
-            if(!confirm("Вы уверены? Если существует запись с данным ID, она будет заменена.")){
+            if(!confirm("Вы уверены? Если существует запись с данным ID, она будет обновлена.")){
                 run = false;
                 break;
             }

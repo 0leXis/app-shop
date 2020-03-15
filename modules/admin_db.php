@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['user_isadmin']))
+        error401();
+    if($_SESSION['user_isadmin'] != true)
+        error403();
     define('PRODUCT_IMAGES_DIR', '..\images\products');
     define('USER_PRODUCT_IMAGES_DIR', '\images\products');
     //TODO: валидация на клиенте и сервере
@@ -214,6 +219,10 @@
                     die();
                 case 'supply_product_form':
                     execProcedure('ChangeSupplyProduct', $_POST['id'], $_POST['supply'], $_POST['count']);
+                    echo 'REFRESH';
+                    die();
+                case 'order_form':
+                    execProcedure('ChangeOrderStatus', $_POST['id'], $_POST['status'], $_SESSION['user_id']);
                     echo 'REFRESH';
                     die();
                 default:
