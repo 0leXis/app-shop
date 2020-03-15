@@ -29,7 +29,7 @@
         <div class="centered-container bottom-container">
             <div class="footer-storeinfo">
                 <div class="header-logo">
-                    <image src="images/Logo.png" alt="Logo" />
+                    <img src="images/Logo.png" alt="Logo" />
                     <span class="big-txt">Offliner</span>
                 </div>
                 <div class="footer-top-slogan">Сходят с ума только те, у кого он есть.</div>

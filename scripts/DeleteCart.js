@@ -9,7 +9,7 @@ function deleteInfo(target, id){
                     locate = JSON.parse(data);
                     document.location = locate['location'];
                 }
-                catch{
+                catch(e){
                     $('p.error-str').html(data);
                 }
             }

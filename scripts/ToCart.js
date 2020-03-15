@@ -14,7 +14,7 @@ $('button[name="to_cart"]').click(function(e){
                 locate = JSON.parse(data);
                 document.location = locate['location'];
             }
-            catch{
+            catch(e){
                 $('p.error-str').html(data);
             }
         }
@@ -52,7 +52,7 @@ $('form[name="order"]').submit(function(e){
                 locate = JSON.parse(data);
                 document.location = locate['location'];
             }
-            catch{
+            catch(e){
                 $('p.error-str').html(data);
             }
         }

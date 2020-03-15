@@ -39,7 +39,7 @@
         <div class="header-main">
             <div class="centered-container">
                 <div class="header-logo">
-                    <image src="images/Logo.png" alt="Logo" />
+                    <img src="images/Logo.png" alt="Logo" />
                     <span class="big-txt">Offliner</span>
                 </div>
                 <div class="header-search-and-cart">
@@ -85,9 +85,9 @@
                                     mysqli_free_result($result);
                                 }
                             ?>
-                            <span><?= is_null($row) ? 0 : $row['count']?> товаров:</span>
+                            <span><?= is_null($row['count']) ? 0 : $row['count']?> товаров:</span>
                             <pre> </pre>
-                            <span class="blue-text">$<?= is_null($row) ? 0 : $row['total']?></span>
+                            <span class="blue-text">$<?= is_null($row['total']) ? 0 : $row['total']?></span>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         <li class="selected-menu-item"><a href="#" class="big-txt black-txt">Главная</a></li>
                         <li><a href="shop.php" class="big-txt white-txt">Магазин</a></li>
                         <li><a href="contact-us.php" class="big-txt white-txt">Наши контакты</a></li>
-                        <li><a href="about-us.html" class="big-txt white-txt">О нас</a></li>
+                        <li><a href="about-us.php" class="big-txt white-txt">О нас</a></li>
                     </ul>
                 </nav>
                 <div class="header-contactus">

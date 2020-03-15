@@ -20,7 +20,7 @@ $('form.additionalinfo-form, form.admin-form').submit(function(e){
                     locate = JSON.parse(data);
                     document.location = locate['location'];
                 }
-                catch{
+                catch(e){
                     $('p.error-str').html(data);
                 }
             }
@@ -40,7 +40,7 @@ $('form.additionalinfo-form, form.admin-form').submit(function(e){
                         locate = JSON.parse(data);
                         document.location = locate['location'];
                     }
-                    catch{
+                    catch(e){
                         $('p.error-str').html(data);
                     }
                 }
@@ -112,7 +112,7 @@ function deleteInfo(target, id){
                     locate = JSON.parse(data);
                     document.location = locate['location'];
                 }
-                catch{
+                catch(e){
                     $('p.error-str').html(data);
                 }
             }
@@ -134,7 +134,7 @@ $('.choosable tr').click(function(e){
         },
         {}
     );
-    if($(this).find('td').length == 1)
+    if($(this).find('td').length <= 1)
         return;
 	if($(this).find('td')[0].innerText == ""){
 		delete params['choosed'];
@@ -149,4 +149,4 @@ $('.choosable tr').click(function(e){
 	}
 	url = url.slice(0, -1);
 	document.location = url;
-})
+});

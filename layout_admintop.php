@@ -45,7 +45,7 @@
         <div class="header-main">
             <div class="centered-container">
                 <div class="header-logo">
-                    <image src="images/Logo.png" alt="Logo" />
+                    <img src="images/Logo.png" alt="Logo" />
                     <span class="big-txt">Offliner</span>
                 </div>
             </div>

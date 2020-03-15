@@ -10,7 +10,7 @@ $(".products-sidebar-categories li").click(function(e){
                 locate = JSON.parse(data);
                 document.location = locate['location'];
             }
-            catch{
+            catch(e){
                 $('p.error-str').html(data);
             }
         }

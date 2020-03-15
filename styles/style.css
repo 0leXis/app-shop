@@ -1416,7 +1416,7 @@ p.error-str{
 }
 
 .cart-totals-header, .cart-totals-value{
-	min-width: 250px;
+    width: 250px;
 }
 
 .cart-totals-header{
