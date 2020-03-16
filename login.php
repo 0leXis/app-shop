@@ -9,6 +9,8 @@
 
     function login(){
         if(isset($_POST['email']) && isset($_POST['password'])){
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+                return("Введен некорректный Email");
             require_once('modules/hash.php');
             require_once('modules/DB_utils.php');
             $users = execProcedure('GetLoginInfo', $_POST['email']);
@@ -37,6 +39,8 @@
 
     function registration(){
         if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['re_password']) && isset($_POST['user_name']) && isset($_POST['user_surname']) && isset($_POST['user_lastname'])){
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+                return("Введен некорректный Email");
             require_once('modules/hash.php');
             require_once('modules/DB_utils.php');
             if($_POST['password'] != $_POST['re_password'])
@@ -83,9 +87,9 @@
                     <input type="hidden" required name="login" value="login"/>
                     <h2 class="big-txt">Зарегистрированный пользователь</h2>
 					<label>Email<span class="required-field"></span></label>
-                    <input type="email" required name="email"/>
+                    <input type="email" required name="email" maxlength="50"/>
                     <label>Пароль<span class="required-field"></span></label>
-                    <input type="password" required name="password"/>
+                    <input type="password" required name="password" maxlength="50"/>
                     <input type="submit" value="Вход"/>
                     <p class="error-str"><?php if(isset($login_error)) echo $login_error;?></p>
                 </form>
@@ -93,17 +97,17 @@
                     <input type="hidden" required name="registration" value="registration"/>
                     <h2 class="big-txt">Не зарегистрированы? Нет проблем!</h2>
 					<label>Имя<span class="required-field"></span></label>
-                    <input type="text" required name="user_name"/>
+                    <input type="text" required name="user_name" maxlength="20"/>
                     <label>Фамилия<span class="required-field"></span></label>
-                    <input type="text" required name="user_surname"/>
+                    <input type="text" required name="user_surname" maxlength="20"/>
                     <label>Отчество<span class="required-field"></span></label>
-					<input type="text" required name="user_lastname"/>
+					<input type="text" required name="user_lastname" maxlength="20"/>
 					<label>Email<span class="required-field"></span></label>
-                    <input type="email" required name="email"/>
+                    <input type="email" required name="email" maxlength="50"/>
                     <label>Пароль<span class="required-field"></span></label>
-                    <input type="password" required name="password"/>
+                    <input type="password" required name="password" maxlength="50"/>
                     <label>Повтор пароля<span class="required-field"></span></label>
-                    <input type="password" required name="re_password"/>
+                    <input type="password" required name="re_password" maxlength="50"/>
                     <input type="submit" value="Зарегистрироваться"/>
                     <p class="error-str"><?php if(isset($registration_error)) echo $registration_error;?></p>
                 </form>

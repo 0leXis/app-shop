@@ -5,6 +5,8 @@
 			error400();
 		}
 		else{
+			if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+				return("Введен некорректный Email");
 			require("modules/DB_utils.php");
 			execProcedure('AddMessage', $_POST['user_name'], $_POST['email'], $_POST['subject'], $_POST['message']);
 		}

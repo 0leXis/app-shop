@@ -11,13 +11,13 @@
 				<form class="contact-form" method="POST" action="contact-confirm.php">
 					<h2 class="big-txt">Оставьте свое сообщение</h2>
 					<label>Имя<span class="required-field"></span></label>
-					<input type="text" required name="user_name"/>
+					<input type="text" required name="user_name" maxlength="50"/>
 					<label>Email<span class="required-field"></span></label>
-					<input type="email" required name="email"/>
+					<input type="email" required name="email" maxlength="50"/>
 					<label>Тема<span class="required-field"></span></label>
-					<input type="text" required name="subject"/>
+					<input type="text" required name="subject" maxlength="50"/>
 					<label>Ваше сообщение<span class="required-field"></span></label>
-                    <textarea name="message" required></textarea>
+                    <textarea name="message" required maxlength="1000"></textarea>
                     <input type="submit" value="Отправить"/>
 				</form>
 				<div class="contacts-info">

@@ -29,8 +29,8 @@
                 </div>
                 <div class="shop-sidebar-column">
                     <div class="shop-sidebar-columnheader big-txt">Цена</div>
-                    <label>От:</label><input type="text" name="min_price" <?= isset($_GET["min_price"]) ? 'value="' . $_GET["min_price"] . '"' : ''?>/>
-                    <label>До:</label><input type="text" name="max_price" <?= isset($_GET["max_price"]) ? 'value="' . $_GET["max_price"] . '"' : ''?>/>
+                    <label>От:</label><input type="text" name="min_price" maxlength="17" <?= isset($_GET["min_price"]) ? 'value="' . $_GET["min_price"] . '"' : ''?>/>
+                    <label>До:</label><input type="text" name="max_price" maxlength="17" <?= isset($_GET["max_price"]) ? 'value="' . $_GET["max_price"] . '"' : ''?>/>
                 </div>
                 <div class="shop-sidebar-column">
                     <div class="shop-sidebar-columnheader big-txt">Производитель</div>

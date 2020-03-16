@@ -91,6 +91,10 @@
                         die();
                     }
                     if(isset($_POST['id']) && $_POST['id'] != ""){
+                        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                            echo "Введен некорректный Email";
+                            die();
+                        }
                         if($user = searchID('workers', $_POST['id'])){
                             if($_POST['pass'] == "")
                                 $password = getHash($_POST['pass']);
@@ -120,6 +124,11 @@
                 case 'manufacturer_form':
                     if($_POST['email'] == "")
                         $_POST['email'] = null;
+                    else
+                    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                        echo "Введен некорректный Email";
+                        die();
+                    }
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         if(searchID('manufacturers', $_POST['id']))
                             execProcedure('ChangeManufacturer', $_POST['id'], $_POST['name'], $_POST['desc'], $_POST['email'], $_POST['country']);
@@ -134,6 +143,11 @@
                 case 'supplier_form':
                     if($_POST['email'] == "")
                         $_POST['email'] = null;
+                    else
+                    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                        echo "Введен некорректный Email";
+                        die();
+                    }
                     if(isset($_POST['id']) && $_POST['id'] != ""){
                         if(searchID('suppliers', $_POST['id']))
                             execProcedure('ChangeSupplier', $_POST['id'], $_POST['name'], $_POST['desc'], $_POST['email']);

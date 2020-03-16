@@ -19,7 +19,7 @@
             <form class="delivery-form" method="POST">
                 <h2 class="big-txt">Детали доставки</h2>
                 <label>Телефон<span class="required-field"></span></label>
-                <input type="text" required name="phone"/>
+                <input type="tel" required name="phone" maxlength="20" pattern="^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$"/>
                 <label>Страна<span class="required-field"></span></label>
                 <select name="country">
                     <?php
@@ -35,11 +35,11 @@
                     ?>
                 </select>   
                 <label>Город<span class="required-field"></span></label>
-                <input type="text" required name="city"/>
+                <input type="text" required name="city" maxlength="50"/>
                 <label>Адрес<span class="required-field"></span></label>
-                <input type="text" required name="address"/>
+                <input type="text" required name="address" maxlength="100"/>
                 <label>Почтовый индекс<span class="required-field"></span></label>
-                <input type="text" required name="post_code"/>
+                <input type="text" required name="post_code" maxlength="6" pattern="[0-9]{6}"/>
                 <label>Способ оплаты<span class="required-field"></span></label>
                 <select name="method">
                     <?php
@@ -55,7 +55,7 @@
                     ?>
                 </select>
                 <label>Номер карты<span class="required-field"></span></label>
-                <input type="text" required name="card"/>
+                <input type="text" required name="card" maxlength="20" pattern="[0-9]{14,}"/>
             </form>
 			<div class="cart-totals">
 				<h2 class="big-txt">Ваш заказ</h2>
