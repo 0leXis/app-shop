@@ -1678,3 +1678,59 @@ input[type="submit"]:disabled:hover{
 .product-desc form{
     margin-bottom: 30px;
 }
+
+@media(max-width: 1000px){
+    .mainpage-sliderblock{
+        justify-content: center;
+    }
+    .banner-container{
+        display: none;
+    }
+
+}
+
+@media (max-width: 908px){
+    .bottom-container{
+        flex-direction: column;
+    }
+    .footer-uselesslinks{
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 810px){
+    .products-block-banner{
+        display: none;
+    }
+}
+
+@media(max-width: 790px){
+    .header-main .centered-container{
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 730px){
+    .header-contactus{
+        display: none;
+    }
+}
+
+@media(max-width: 620px){
+    .slider{
+        width: 100%;
+    }
+}
+
+@media(max-width: 480px){
+    .header-nav nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-nav nav{
+        width: 100%;
+    }
+}

@@ -1,7 +1,7 @@
 <?php
     if(!isset($_SESSION))
         session_start();
-    require_once("modules\connection.php");
+    require("modules\connection.php");
 ?>
 <!DOCTYPE html>
 <html>
